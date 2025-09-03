@@ -8,8 +8,8 @@
   <title>Login</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="<?=media()?>/css/login.css">
-  <link rel="stylesheet" type="text/css" href="<?=media()?>/css/main.css">
+  <link rel="stylesheet" type="text/css" href="<?= media() ?>/css/login.css">
+  <link rel="stylesheet" type="text/css" href="<?= media() ?>/css/main.css">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
     <!-- FORMULARIOS ENCIMA DEL FONDO -->
     <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 10;">
       <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-        <h1>Bienvenido a Educka</h1> 
+        <h1>Bienvenido a Educka</h1>
       </div>
 
       <div class="formbg-outer">
@@ -82,78 +82,78 @@
               </div>
 
               <div class="field"></div>
-                <a class="ssolink" href="<?=base_url();?>/">Usar inicio con Google</a>
 
-    <div id="g_id_onload"
-         data-client_id="196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-    </div>
 
-    <div class="g_id_signin"
-         data-type="standard"
-         data-shape="pill"
-         data-theme="outline"
-         data-text="signin_with"
-         data-size="large"
-         data-logo_alignment="left">
-    </div>
+              <div id="g_id_onload"
+                data-client_id="196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+              </div>
 
-    <div id="status"></div>
-        
+              <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="outline"
+                data-text="signin_with"
+                data-size="large"
+                data-logo_alignment="left">
               </div>
-            </form>
 
-            <!-- FORMULARIO RECUPERAR CONTRASEÑA -->
-            <form id="formresetpassword" name="formresetpassword" style="display:none;">
-              <div class="field padding-bottom--24">
-                <label for="txtemailreset">Correo electrónico</label>
-                <input type="email" id="txtemailreset" name="txtemailreset" placeholder="tucorreo@ejemplo.com" required>
-              </div>
-              <div class="field">
-                <input type="submit" value="Reiniciar">
-              </div>
-              <div class="field">
-                <a href="#" data-toggle="flip">Iniciar Sesión</a>
-              </div>
-            </form>
+              <div id="status"></div>
 
           </div>
-        </div>
+          </form>
 
-        <div class="footer-link padding-top--24">
-          <span>¿No tienes cuenta? <a href="registro.php">Regístrate</a></span>
-          <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-            <span><a href="#">© TuSistema</a></span>
-            <span><a href="#">Contacto</a></span>
-            <span><a href="#">Política de privacidad</a></span>
-          </div>
+          <!-- FORMULARIO RECUPERAR CONTRASEÑA -->
+          <form id="formresetpassword" name="formresetpassword" style="display:none;">
+            <div class="field padding-bottom--24">
+              <label for="txtemailreset">Correo electrónico</label>
+              <input type="email" id="txtemailreset" name="txtemailreset" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+            <div class="field">
+              <input type="submit" value="Reiniciar">
+            </div>
+            <div class="field">
+              <a href="#" data-toggle="flip">Iniciar Sesión</a>
+            </div>
+          </form>
+
         </div>
       </div>
 
+      <div class="footer-link padding-top--24">
+        <span>¿No tienes cuenta? <a href="registro.php">Regístrate</a></span>
+        <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+          <span><a href="#">© TuSistema</a></span>
+          <span><a href="#">Contacto</a></span>
+          <span><a href="#">Política de privacidad</a></span>
+        </div>
+      </div>
     </div>
+
+  </div>
   </div>
 
   <!-- Base URL -->
   <script>
-    const baseurl = "<?=base_url();?>";
+    const baseurl = "<?= base_url(); ?>";
   </script>
 
   <!-- JS -->
-  <script src="<?=media()?>/js/jquery-3.3.1.min.js"></script>
-  <script src="<?=media()?>/js/popper.min.js"></script>
-  <script src="<?=media()?>/js/bootstrap.min.js"></script>
-  <script src="<?=media()?>/js/main.js"></script>
-  <script src="<?=media()?>/js/fontawesome.js"></script>
-  <script type="text/javascript" src="<?=media()?>/js/plugins/sweetalert.min.js"></script>
-  <script src="<?=media()?>/js/functions/<?=$data['page_functions_js']?>"></script>
+  <script src="<?= media() ?>/js/jquery-3.3.1.min.js"></script>
+  <script src="<?= media() ?>/js/popper.min.js"></script>
+  <script src="<?= media() ?>/js/bootstrap.min.js"></script>
+  <script src="<?= media() ?>/js/main.js"></script>
+  <script src="<?= media() ?>/js/fontawesome.js"></script>
+  <script type="text/javascript" src="<?= media() ?>/js/plugins/sweetalert.min.js"></script>
+  <script src="<?= media() ?>/js/functions/<?= $data['page_functions_js'] ?>"></script>
 
   <!-- JS para mostrar/ocultar formularios -->
   <script>
     document.querySelectorAll('[data-toggle="flip"]').forEach(el => {
-      el.addEventListener('click', function (e) {
+      el.addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelector('#formlogin').style.display =
           document.querySelector('#formlogin').style.display === 'none' ? 'block' : 'none';
@@ -164,10 +164,11 @@
   </script>
 
 
-<!--inicio de sesion google  -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="<?=media()?>/js/functions/functiongoogle.js"></script>
+  <!--inicio de sesion google  -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="<?= media() ?>/js/functions/functiongoogle.js"></script>
 
 
 </body>
+
 </html>
