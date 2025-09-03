@@ -3,7 +3,8 @@
 
 function handleCredentialResponse(response) {
 
-    console.log("196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com" + response.credential);
+    //console.log("196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com" + response.credential);
+    console.log("196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com" + response.credential);
 
     // Decodificar el token para obtener los datos del usuario
     const token = response.credential;
