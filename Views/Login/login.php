@@ -85,10 +85,11 @@
                 <div id="g_id_onload"
                   data-client_id="196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com"
                   data-context="signin"
-                  data-ux_mode="popup"
-                  data-callback="handleCredentialResponse"
+                  data-ux_mode="redirect"
+                  data-login_uri="https://linen-swallow-444205.hostingersite.com/Login"
                   data-auto_prompt="false">
                 </div>
+            
 
                 <div class="g_id_signin"
                   data-type="standard"
@@ -150,7 +151,6 @@
 
   <!-- JS para mostrar/ocultar formularios -->
   <script>
-
     document.querySelectorAll('[data-toggle="flip"]').forEach(el => {
       el.addEventListener('click', function(e) {
         e.preventDefault();
@@ -165,7 +165,7 @@
 
 
   <!-- inicio de sesion google functiongoogle -->
-  
+
 
   <script src="https://accounts.google.com/gsi/client"></script>
   <script src="<?= media() ?>/js/functions/functiongoogle.js"></script>
