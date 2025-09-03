@@ -138,6 +138,16 @@
   <!-- Base URL -->
   <script>
     const baseurl = "<?= base_url(); ?>";
+      document.cookie.split(";").forEach(function(c) {
+    document.cookie = c.trim().split("=")[0] + 
+      '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+  });
+
+  // Borrar localStorage y sessionStorage
+  localStorage.clear();
+  sessionStorage.clear();
+
+  console.log("Cookies y storage eliminados al entrar.");
   </script>
 
   <!-- JS -->
