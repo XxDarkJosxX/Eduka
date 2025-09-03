@@ -1,0 +1,59 @@
+.plyr__video-embed iframe::after {
+    display: none !important;
+  }
+  .ytp-watermark {
+    display: none !important;
+  }
+
+
+#youtubeframeid{
+  opacity: 0;
+  pointer-events: none;
+}
+.ytp-chrome-bottom {
+  display: none !important;
+}
+
+
+.modal-xl {
+  max-width: 90% !important;
+}
+
+.favorite-checkbox {
+  display: none;
+}
+
+.favorite-checkbox:checked + .material-icons {
+  color: red !important;
+}
+
+.cardcurso{
+  
+  display: block; 
+  position: relative; 
+  overflow: hidden; 
+  background-size: cover; 
+  background-position: center center; 
+  height: 200px;
+
+}
+.cardcurso img{
+  display: block; 
+  position: relative; 
+  overflow: hidden; 
+  background-size: cover; 
+  background-position: center center; 
+  width: 100%;
+  height: 100%;
+}
+
+.page-section{
+  padding-bottom: 5.5rem !important;
+}
+
+
+/* barra de naveacion dasboard */
+
+.navadmin{
+  padding-bottom: 5rem !important;
+}

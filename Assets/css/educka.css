@@ -1,0 +1,62 @@
+:root {
+    --body-font: "Poppins", sans-serif;
+    --heading-font: "Sora", sans-serif;
+
+    --gr-educka: linear-gradient(91.2deg, #E7939A -14.58%, #E6939A -14.57%, #BD52FF 119.28%, #BD52FF 119.28%);
+    --white:#fff;
+    --black:#1e1e1e;
+    --neutro-educka:#CE6CD5;
+    --morado-educka: #210A2F;
+    --paragraph-educka: #6B6B6B;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    font-family: var(--heading-font) !important;
+}
+.gradient-text{
+    background: linear-gradient(91.2deg, #E7939A -14.58%, #BD52FF 119.28%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+.btn{
+    text-transform: none !important;
+}
+.btn-white, .btn-primary{
+    background: var(--gr-educka);
+    border: none !important;
+    color: var(--white);
+}
+
+.btn-white{
+    border-radius: 17px !important;
+    padding: 19px 47px 19px !important;
+    font-family: var(--body-font);
+    font-size: 18px;
+}
+.btn-white:hover{
+    background: var(--white);
+    border: none !important;
+    color: var(--neutro-educka);
+}
+
+
+.mdk-box--bg-primary .mdk-box__bg-front::after{
+    /* background: var(--morado-educka) !important; */
+    background: var(--white) !important;
+}
+.img_estudent{
+    width: 600px;
+}
+.text-white{
+    color: var(--black) !important;
+}
+.parrafo{
+    color: var(--paragraph-educka) !important;
+}
+.titulo_educka{
+    padding-top: 20% !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
