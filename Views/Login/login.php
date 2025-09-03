@@ -87,7 +87,7 @@
                   data-client_id="196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com"
                   data-context="signin"
                   data-ux_mode="popup"
- 
+                  data-callback="handleCredentialResponse"
                   data-auto_prompt="false">
                 </div>
 
