@@ -12,7 +12,7 @@ window.handleCredentialResponse = function(response) {
     // No necesitamos contraseña
 
     // Enviar POST al servidor
-    fetch(baseurl + "/Login/loginuser", {
+    fetch(baseurl + "/Login/loginusergoogle", {
         method: "POST",
         body: formData
     })

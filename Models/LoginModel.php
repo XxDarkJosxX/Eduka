@@ -21,6 +21,15 @@
             $request=$this->select($sql);
             return $request;
         }
+
+        public function loginusergoogle(string $user){
+            $this->struser=$user;
+            $sql= "SELECT idusuario , estado FROM tusuarios WHERE correo='$this->struser' AND estado != 0";
+            $request=$this->select($sql);
+            return $request;
+        }
+
+
         public function sessionlogin(int $iduser){
             $this->intiduser=$iduser;
          

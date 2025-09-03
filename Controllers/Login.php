@@ -69,9 +69,8 @@
                     $arrresponse= array('status'=>false,'msg'=>'Error de Datos');
                 }else{
                     $struser= strtolower(strclean($_POST['txtemail']));
-                    $strpassword= hash("SHA256",$_POST['txtpassword']);
                 
-                    $requestuser= $this->model->loginuser($struser,$strpassword);
+                    $requestuser= $this->model->loginusergoogle($struser);
                     
                     if(empty($requestuser)){
                         $arrresponse= array('status'=>false,'msg'=>'El usuario o contraseña es incorrectos');

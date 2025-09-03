@@ -184,7 +184,7 @@
 </script>
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="<?= media() ?>/js/functions/functiongoogle.js?v3"></script>
+  <script src="<?= media() ?>/js/functions/functiongoogle.js?v=<?= time() ?>"></script>
 </body>
 
 </html>
