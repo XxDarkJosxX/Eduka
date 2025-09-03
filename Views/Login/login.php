@@ -140,6 +140,7 @@
   </script>
 
   <!-- JS -->
+   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="<?= media() ?>/js/jquery-3.3.1.min.js"></script>
   <script src="<?= media() ?>/js/popper.min.js"></script>
   <script src="<?= media() ?>/js/bootstrap.min.js"></script>
@@ -167,7 +168,7 @@
   <!-- inicio de sesion google functiongoogle -->
   
 
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
   <script src="<?= media() ?>/js/functions/functiongoogle.js"></script>
 </body>
 
