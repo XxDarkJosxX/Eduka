@@ -8,8 +8,8 @@
   <title>Login</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="<?=media()?>/css/login.css">
-  <link rel="stylesheet" type="text/css" href="<?=media()?>/css/main.css">
+  <link rel="stylesheet" type="text/css" href="<?= media() ?>/css/login.css">
+  <link rel="stylesheet" type="text/css" href="<?= media() ?>/css/main.css">
 </head>
 
 <body>
@@ -82,32 +82,24 @@
               </div>
 
               <div class="field">
-                
-    <div id="g_id_onload"
-         data-client_id="196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-    </div>
+                <div id="g_id_onload"
+                  data-client_id="196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com"
+                  data-context="signin"
+                  data-ux_mode="popup"
+                  data-callback="handleCredentialResponse"
+                  data-auto_prompt="false">
+                </div>
 
-    <div class="g_id_signin"
-         data-type="standard"
-         data-shape="pill"
-         data-theme="outline"
-         data-text="signin_with"
-         data-size="large"
-         data-logo_alignment="left">
-    </div>
+                <div class="g_id_signin"
+                  data-type="standard"
+                  data-shape="pill"
+                  data-theme="outline"
+                  data-text="signin_with"
+                  data-size="large"
+                  data-logo_alignment="left">
+                </div>
 
-    <div id="status"></div>
-
-
-
-  
-
-
-
+                <div id="status"></div>
               </div>
 
 
@@ -146,22 +138,22 @@
 
   <!-- Base URL -->
   <script>
-    const baseurl = "<?=base_url();?>";
+    const baseurl = "<?= base_url(); ?>";
   </script>
 
   <!-- JS -->
-  <script src="<?=media()?>/js/jquery-3.3.1.min.js"></script>
-  <script src="<?=media()?>/js/popper.min.js"></script>
-  <script src="<?=media()?>/js/bootstrap.min.js"></script>
-  <script src="<?=media()?>/js/main.js"></script>
-  <script src="<?=media()?>/js/fontawesome.js"></script>
-  <script type="text/javascript" src="<?=media()?>/js/plugins/sweetalert.min.js"></script>
-  <script src="<?=media()?>/js/functions/<?=$data['page_functions_js']?>"></script>
+  <script src="<?= media() ?>/js/jquery-3.3.1.min.js"></script>
+  <script src="<?= media() ?>/js/popper.min.js"></script>
+  <script src="<?= media() ?>/js/bootstrap.min.js"></script>
+  <script src="<?= media() ?>/js/main.js"></script>
+  <script src="<?= media() ?>/js/fontawesome.js"></script>
+  <script type="text/javascript" src="<?= media() ?>/js/plugins/sweetalert.min.js"></script>
+  <script src="<?= media() ?>/js/functions/<?= $data['page_functions_js'] ?>"></script>
 
   <!-- JS para mostrar/ocultar formularios -->
   <script>
     document.querySelectorAll('[data-toggle="flip"]').forEach(el => {
-      el.addEventListener('click', function (e) {
+      el.addEventListener('click', function(e) {
         e.preventDefault();
         document.querySelector('#formlogin').style.display =
           document.querySelector('#formlogin').style.display === 'none' ? 'block' : 'none';
@@ -173,10 +165,11 @@
 
 
 
-<!-- inicio de sesion google functiongoogle -->
+  <!-- inicio de sesion google functiongoogle -->
 
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="<?=media()?>/js/functions/functiongoogle.js"></script>
+  <script src="<?= media() ?>/js/functions/functiongoogle.js"></script>
 </body>
+
 </html>
