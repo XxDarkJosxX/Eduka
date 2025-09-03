@@ -1,7 +1,8 @@
 // Esta función se llama automáticamente después de que el usuario inicia sesión
 // Google le pasa un objeto "response" que contiene el ID token
-alert();
+
 function handleCredentialResponse(response) {
+    alert();
     console.log("196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com" + response.credential);
 
     // Decodificar el token para obtener los datos del usuario

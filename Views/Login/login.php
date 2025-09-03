@@ -122,7 +122,7 @@
         </div>
 
         <div class="footer-link padding-top--24">
-          <span>¿No tienes cuenta? <a href="registro.php">Regístrate dddddddddddddddddd</a></span>
+          <span>¿No tienes cuenta? <a href="registro.php">Regístrate</a></span>
           <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
             <span><a href="#">© TuSistema</a></span>
             <span><a href="#">Contacto</a></span>
