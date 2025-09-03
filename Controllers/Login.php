@@ -16,7 +16,11 @@
             $data['page_name'] = "login";
             $data['page_functions_js'] = "functionlogin.js";
             $this->views->getview($this,"login",$data);
+        
         }
+
+
+
         
         public function loginuser(){
             //dep($_POST);
@@ -54,6 +58,58 @@
     
             die();
         }
+
+
+
+
+            public function loginusergoogle(){
+            //dep($_POST);
+            if($_POST){
+                if(empty($_POST['txtemail']) || empty($_POST['txtpassword']) ){
+                    $arrresponse= array('status'=>false,'msg'=>'Error de Datos');
+                }else{
+                    $struser= strtolower(strclean($_POST['txtemail']));
+                    $strpassword= hash("SHA256",$_POST['txtpassword']);
+                
+                    $requestuser= $this->model->loginuser($struser,$strpassword);
+                    
+                    if(empty($requestuser)){
+                        $arrresponse= array('status'=>false,'msg'=>'El usuario o contraseña es incorrectos');
+                    }else{
+                        $arrdata=$requestuser;
+                        if($arrdata['estado']==1){
+
+                            $_SESSION['iduser']=$arrdata['idusuario'];
+                            $_SESSION['login']=true;
+                            $arrdata= $this->model->sessionlogin($_SESSION['iduser']);
+
+                            sessionuser($_SESSION['iduser']);
+                      
+                            $arrresponse= array('status'=>true,'msg'=>'ok');
+
+                        }else{
+                            $arrresponse= array('status'=>false,'msg'=>'Usuario inactivo o suspendido');
+                        }
+                    }
+
+                }
+                echo json_encode($arrresponse,JSON_UNESCAPED_UNICODE);
+            }
+    
+            die();
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
 
         public function resetpassword(){
             if($_POST){
