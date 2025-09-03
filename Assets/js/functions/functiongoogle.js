@@ -4,7 +4,7 @@ window.handleCredentialResponse = function(response) {
     // Mostrar datos en la página (opcional)
     document.getElementById('status').innerText =
       `Hola ${datosUsuario.given_name}, tu correo es ${datosUsuario.email}`;
-    alert(datosUsuario.given_name);
+
     // Preparar datos para enviar
     const formData = new FormData();
     formData.append("txtemail", datosUsuario.email);
