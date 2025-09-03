@@ -19,7 +19,7 @@ function handleCredentialResponse(response) {
         `¡Hola, ${datosUsuario.sub}! <br> Tu correo es: ${datosUsuario.sub}.`;
 
 
-        alert();
+ 
     // Aquí es donde enviarías los datos a tu servidor
     // Por ejemplo:
     // const usuario = {
@@ -33,6 +33,8 @@ function handleCredentialResponse(response) {
 
 // Función para decodificar el ID Token (el JWT)
 function parseJwt (token) {
+
+           alert();
 
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
