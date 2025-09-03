@@ -10,6 +10,8 @@
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="<?= media() ?>/css/login.css">
   <link rel="stylesheet" type="text/css" href="<?= media() ?>/css/main.css">
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -140,7 +142,7 @@
   </script>
 
   <!-- JS -->
-   <script src="https://accounts.google.com/gsi/client" async defer></script>
+   
   <script src="<?= media() ?>/js/jquery-3.3.1.min.js"></script>
   <script src="<?= media() ?>/js/popper.min.js"></script>
   <script src="<?= media() ?>/js/bootstrap.min.js"></script>
