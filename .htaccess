@@ -11,3 +11,9 @@ RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
     Header always unset Cross-Origin-Embedder-Policy
 </IfModule>
 
+
+
+add_header Cross-Origin-Opener-Policy same-origin;
+add_header Cross-Origin-Embedder-Policy require-corp;
+
+
