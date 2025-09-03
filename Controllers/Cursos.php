@@ -132,7 +132,7 @@ class Cursos extends Controllers
 
             $filename = 'Portada - '.$requestrol.'.'.$extensionArchivo;
             $fileurl = './Assets/archivos/portada-curso/' . $filename;
-            $fileurl2 = './Assets/archivos/portada-curso/' . $filename;
+            $fileurl2 = '/Assets/archivos/portada-curso/' . $filename;
             $requestfile=$this->model->insertfile($requestrol,$filename, $fileurl2);
 
             $option = 1;
@@ -143,7 +143,7 @@ class Cursos extends Controllers
 
             $filename = 'Portada - '.$intidcurso.'.'.$extensionArchivo;
             $fileurl = './Assets/archivos/portada-curso/' . $filename;
-            $fileurl2 = './Assets/archivos/portada-curso/' . $filename;
+            $fileurl2 = '/Assets/archivos/portada-curso/' . $filename;
             $requestfile=$this->model->insertfile($intidcurso,$filename, $fileurl2);
 
             $option = 2;
