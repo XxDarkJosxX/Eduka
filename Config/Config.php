@@ -3,7 +3,7 @@
     date_default_timezone_set('UTC');
 
 
-    const BASE_URL = "https://linen-swallow-444205.hostingersite.com/";
+    const BASE_URL = "https://linen-swallow-444205.hostingersite.com";
     const DB_HOST = "localhost";
     const DB_NAME = "u251793036_db_educkaonlin";
     const DB_USER = "u251793036_db_educkaonlin";
