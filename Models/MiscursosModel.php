@@ -28,12 +28,25 @@ class MiscursosModel extends Mysql
 
     public function selectmiscursos($id_usuario_actual)
     {
-        $sql = "SELECT tu.idusuario, tu.nombre, tu.apellidos, tc.idcurso , tc.titulo, tc.estado, tcat.nombre AS nombrecat
-        FROM tcursos tc 
-        JOIN tusuarios tu ON tc.idusuario = tu.idusuario 
-        JOIN tcategoria tcat ON tcat.idcategoria = tc.idcategoria  
-        JOIN tplataforma tuplat ON tuplat.idplataforma = tu.idplataforma 
-        WHERE tc.estado != 0 AND tc.idusuario = $id_usuario_actual;";
+        $sql = "SELECT
+    tu.idusuario,
+    tu.nombre,
+    tu.apellidos,
+    tc.idcurso,
+    tc.titulo,
+    tc.estado,
+    tcat.nombre AS nombre_categoria,
+    tplat.nombre AS nombre_plataforma
+FROM
+    tcursos tc
+JOIN
+    tusuarios tu ON tc.idusuario = tu.idusuario
+JOIN
+    tcategoria tcat ON tcat.idcategoria = tc.idcategoria
+JOIN
+    tplataforma tplat ON tplat.idplataforma = tu.idplataforma
+WHERE
+    tc.estado != 0 AND tc.idusuario = $id_usuario_actual;";
         $request = $this->selectall($sql);
         return $request;
     }
