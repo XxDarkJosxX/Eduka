@@ -2,7 +2,7 @@
 // Google le pasa un objeto "response" que contiene el ID token
 
 function handleCredentialResponse(response) {
-    alert();
+
     console.log("196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com" + response.credential);
 
     // Decodificar el token para obtener los datos del usuario
@@ -18,6 +18,7 @@ function handleCredentialResponse(response) {
         `¡Hola, ${datosUsuario.sub}! <br> Tu correo es: ${datosUsuario.sub}.`;
 
 
+        alert();
     // Aquí es donde enviarías los datos a tu servidor
     // Por ejemplo:
     // const usuario = {
@@ -31,6 +32,7 @@ function handleCredentialResponse(response) {
 
 // Función para decodificar el ID Token (el JWT)
 function parseJwt (token) {
+
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -39,3 +41,4 @@ function parseJwt (token) {
 
     return JSON.parse(jsonPayload);
 }
+
