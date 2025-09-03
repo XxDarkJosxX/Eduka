@@ -4,13 +4,13 @@
         //Nivel de accesos
         private $intidusuario;
         private $intidrol;
-        private $strci;
+ 
         private $strnombre;
         private $strapellido;
         private $strcorreo;
         private $intestado;
         private $inttelefono;
-        private $intci;
+      
         private $strpassword;
         private $intsuscripcion;
         private $strtoken;
@@ -19,9 +19,9 @@
 
             parent::__construct();
         }
-        public function insertregistro(int $idrol,string $ci, string $nombre, string $apellido, string $email, int $telefono, string $suscripcion ,string $password, int $estado){
+        public function insertregistro(int $idrol, string $nombre, string $apellido, string $email, int $telefono, string $suscripcion ,string $password, int $estado){
             $this->intidrol = $idrol;
-			$this->intci = $ci;
+			
 			$this->strnombre = $nombre;
 			$this->strapellido = $apellido;
             $this->strcorreo = $email;
@@ -33,15 +33,15 @@
 			$return = 0;
 
 			$sql = "SELECT * FROM tusuarios 
-                    WHERE correo = '{$this->strcorreo}' OR ci = '{$this->intci}'";
+                    WHERE correo = '{$this->strcorreo}'";
 			$request = $this->selectall($sql);
 
 			if(empty($request))
 			{
-				$query  = "INSERT INTO tusuarios(idroles,ci,nombre, apellidos,correo, telefono, suscripcion, password ,estado) 
+				$query  = "INSERT INTO tusuarios(idroles,nombre, apellidos,correo, telefono, suscripcion, password ,estado) 
 								  VALUES(?,?,?,?,?,?,?,?,?)";
 	        	$arrdata = array($this->intidrol,
-        						$this->intci,
+        						
         						$this->strnombre,
                                 $this->strapellido,
         						$this->strcorreo,

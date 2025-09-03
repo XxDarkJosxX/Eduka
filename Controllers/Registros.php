@@ -24,12 +24,12 @@ class Registros extends Controllers
     public function setregistros()
     {
         if ($_POST) {
-            if (empty($_POST['txtnombre']) || empty($_POST['txtapellido']) || empty($_POST['txttelefono']) ||  empty($_POST['txtci']) ||  empty($_POST['txtcorreo'])) {
+            if (empty($_POST['txtnombre']) || empty($_POST['txtapellido']) || empty($_POST['txttelefono'])  ||  empty($_POST['txtcorreo'])) {
                 $arrresponse = array("status" => false, "msg" => 'Datos incorrectos.');
             } else {
                 // No importa el orden de las variables
         
-                $strci = strclean($_POST['txtci']);
+                
                 $strnombre = ucwords(strclean($_POST['txtnombre']));
                 $strapellido = ucwords(strclean($_POST['txtapellido']));
                 $inttelefono = intval(strclean($_POST['txttelefono']));
@@ -44,7 +44,7 @@ class Registros extends Controllers
 
                 $requestusuario = $this->model->insertregistro(
                     $intidrol,
-                    $strci,
+                   
                     $strnombre,
                     $strapellido,
                     $strcorreo,

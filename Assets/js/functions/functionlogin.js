@@ -3,12 +3,6 @@ $('.login-content [data-toggle="flip"]').click(function () {
   return false;
 });
 
-// Alternar entre login y reset password
-/*$('[data-toggle="flip"]').click(function(e) {
-  e.preventDefault();
-  $('#formlogin, #formresetpassword').toggle(); 
-});
-*/
 
 
 document.addEventListener("DOMContentLoaded",function () {
