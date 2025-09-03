@@ -28,8 +28,6 @@ class Registros extends Controllers
                 $arrresponse = array("status" => false, "msg" => 'Datos incorrectos.');
             } else {
                 // No importa el orden de las variables
-        
-                
                 $strnombre = ucwords(strclean($_POST['txtnombre']));
                 $strapellido = ucwords(strclean($_POST['txtapellido']));
                 $inttelefono = intval(strclean($_POST['txttelefono']));
@@ -44,7 +42,6 @@ class Registros extends Controllers
 
                 $requestusuario = $this->model->insertregistro(
                     $intidrol,
-                   
                     $strnombre,
                     $strapellido,
                     $strcorreo,

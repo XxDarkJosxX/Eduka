@@ -41,7 +41,7 @@
 				$query  = "INSERT INTO tusuarios(idroles,nombre, apellidos,correo, telefono, suscripcion, password ,estado) 
 								  VALUES(?,?,?,?,?,?,?,?,?)";
 	        	$arrdata = array($this->intidrol,
-        						
+        						 
         						$this->strnombre,
                                 $this->strapellido,
         						$this->strcorreo,
