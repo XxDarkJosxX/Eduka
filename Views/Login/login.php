@@ -82,7 +82,6 @@
               </div>
 
               <div class="field">
-                
                 <div id="g_id_onload"
                   data-client_id="196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com"
                   data-context="signin"
@@ -138,16 +137,6 @@
   <!-- Base URL -->
   <script>
     const baseurl = "<?= base_url(); ?>";
-      document.cookie.split(";").forEach(function(c) {
-    document.cookie = c.trim().split("=")[0] + 
-      '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
-  });
-
-  // Borrar localStorage y sessionStorage
-  localStorage.clear();
-  sessionStorage.clear();
-
-  console.log("Cookies y storage eliminados al entrar.");
   </script>
 
   <!-- JS -->
@@ -176,9 +165,25 @@
 
 
   <!-- inicio de sesion google functiongoogle -->
-  
+  <script>
+  window.handleCredentialResponse = function(response) {
+    console.log("Google credential:", response);
+    const datosUsuario = parseJwt(response.credential);
+    document.getElementById('status').innerText =
+      `Hola ${datosUsuario.given_name}, tu correo es ${datosUsuario.email}`;
+  };
 
-  <script src="https://accounts.google.com/gsi/client"></script>
+  function parseJwt (token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+  }
+</script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="<?= media() ?>/js/functions/functiongoogle.js"></script>
 </body>
 
