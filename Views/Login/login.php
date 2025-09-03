@@ -82,8 +82,36 @@
               </div>
 
               <div class="field">
-                <a class="ssolink" href="#">Usar inicio con Google</a>
+                
+    <div id="g_id_onload"
+         data-client_id="196182658810-m7hquanr8amisbr3rrpi91hs5jeag9hs.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="pill"
+         data-theme="outline"
+         data-text="signin_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+
+    <div id="status"></div>
+
+
+
+  
+
+
+
               </div>
+
+
+
             </form>
 
             <!-- FORMULARIO RECUPERAR CONTRASEÑA -->
@@ -143,5 +171,12 @@
     });
   </script>
 
+
+
+<!-- inicio de sesion google functiongoogle -->
+
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="<?=media()?>/js/functions/functiongoogle,js"></script>
 </body>
 </html>
