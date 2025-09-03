@@ -102,8 +102,6 @@
                 <div id="status"></div>
               </div>
 
-
-
             </form>
 
             <!-- FORMULARIO RECUPERAR CONTRASEÑA -->
@@ -166,7 +164,7 @@
 
 
   <!-- inicio de sesion google functiongoogle -->
-
+  
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="<?= media() ?>/js/functions/functiongoogle.js"></script>
