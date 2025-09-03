@@ -150,6 +150,7 @@
 
   <!-- JS para mostrar/ocultar formularios -->
   <script>
+    alert();
     document.querySelectorAll('[data-toggle="flip"]').forEach(el => {
       el.addEventListener('click', function(e) {
         e.preventDefault();
