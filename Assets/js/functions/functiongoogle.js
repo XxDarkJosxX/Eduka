@@ -33,7 +33,7 @@ function handleCredentialResponse(response) {
 
 // Función para decodificar el ID Token (el JWT)
 function parseJwt (token) {
-
+    alert();
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
