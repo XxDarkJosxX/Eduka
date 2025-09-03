@@ -177,6 +177,6 @@
 
 
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="<?=media()?>/js/functions/functiongoogle,js"></script>
+    <script src="<?=media()?>/js/functions/functiongoogle.js"></script>
 </body>
 </html>
