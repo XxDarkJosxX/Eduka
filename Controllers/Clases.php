@@ -124,7 +124,7 @@ class Clases extends Controllers
 
             $filename = 'Material de Clase - ' . $intidclase . '.' . $extensionArchivo;
             $fileurl = './Assets/archivos/materiales/' . $filename;
-            $fileurl2 = './Assets/archivos/materiales/' . $filename;
+            $fileurl2 = '/Assets/archivos/materiales/' . $filename;
             $requestfile = $this->model->insertfile($intidclase, $filename, $fileurl2);
             $option = 2;
         }
