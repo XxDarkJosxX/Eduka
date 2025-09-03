@@ -20,12 +20,12 @@
     const DB_CHARSET = "utf8";
 
     const NOMBRE_REMITENTE = "Educka";
-	const EMAIL_REMITENTE = "no-reply@linen-swallow-444205.hostingersite.com";
+	const EMAIL_REMITENTE = "no-reply@nathanpublicidad.com";
 	const NOMBRE_EMPESA = "Educka";
-	const WEB_EMPRESA = "linen-swallow-444205.hostingersite.com";
+	const WEB_EMPRESA = "nathanpublicidad.com";
     const DIRECCION = "";
     const TELEMPRESA = "";
-    const EMAIL_EMPRESA = "Educka@admin.com";
+    const EMAIL_EMPRESA = "nathanpublicidad.com@admin.com";
 
     //Deliminadores decimal y millar Ej. 24,1989.00
 	const SPD = ".";
