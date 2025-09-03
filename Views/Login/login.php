@@ -52,7 +52,7 @@
     <!-- FORMULARIOS ENCIMA DEL FONDO -->
     <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 10;">
       <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-        <h1>Bienvenido a Educka</h1> 
+        <h1>Bienvenido a Educka</h1>
       </div>
 
       <div class="formbg-outer">
@@ -81,10 +81,8 @@
                 <input type="submit" name="submit" value="Ingresar">
               </div>
 
-              <div class="field"></div>
-                <a class="ssolink" href="<?=base_url();?>/">Usar inicio con Google</a>
-
-        
+              <div class="field">
+                <a class="ssolink" href="#">Usar inicio con Google</a>
               </div>
             </form>
 
@@ -144,12 +142,6 @@
       });
     });
   </script>
-
-
-<!--inicio de sesion google  -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="<?=media()?>/js/functions/functiongoogle.js"></script>
-
 
 </body>
 </html>

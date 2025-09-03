@@ -65,7 +65,7 @@
             public function loginusergoogle(){
             //dep($_POST);
             if($_POST){
-                if(empty($_POST['txtemail']) || empty($_POST['txtpassword']) ){
+                if(empty($_POST['txtemail']) ){
                     $arrresponse= array('status'=>false,'msg'=>'Error de Datos');
                 }else{
                     $struser= strtolower(strclean($_POST['txtemail']));
