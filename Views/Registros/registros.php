@@ -30,6 +30,7 @@ headerprincipal($data);
             </div>
             <div class="text-center">
                 <button class="btn btn-primary btncrear" type="submit" >Crear Usuario</button>
+                <button class="btn btn-primary btncrear" type="submit" >Crear Usuario Gmail</button>
                 
    
             </div>

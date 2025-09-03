@@ -98,6 +98,11 @@ headerprincipal($data);
                         <h4 class="card-title"><strong>Acceso Limitado</strong></h4>
                         <p class="card-subtitle text-70 mb-24pt">Para acceder a todo el contenido suscribete</p>
 
+                        <div class="posts-cards" id="fileSection">
+    <!-- Aquí se cargará el archivo con JS -->
+</div>
+
+
                     </div>
                 </div>
 

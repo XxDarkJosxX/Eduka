@@ -43,27 +43,52 @@ document.addEventListener("DOMContentLoaded",function(){
 
 function getclase(){
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    //El getusuario esta en Singular !Cuidado confunfir!
     var ajaxUrl = baseurl + '/Video/getclase';
     request.open("GET", ajaxUrl, true);
     request.send();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-    
             var objdata = JSON.parse(request.responseText);
-    
+
             if (objdata.estado) {
-                titulo.innerHTML= objdata.titclase;
-                descripcion.innerHTML=objdata.descripcion;
+                titulo.innerHTML = objdata.titclase;
+                descripcion.innerHTML = objdata.descripcion;
                 getvideo(objdata.enlace);
-                
+
+                // 🔹 Renderizar archivo adicional si existe
+                if (objdata.archivos && objdata.archivourl) {
+                    const fileSection = document.querySelector('#fileSection');
+                    fileSection.innerHTML = `
+                        <div class="card posts-card mb-0">
+                            <div class="posts-card__content d-flex align-items-center flex-wrap">
+                                <div class="avatar avatar-lg mr-3">
+                                    <img src="${baseurl}/Assets/images/file-icon.png" alt="file" class="avatar-img rounded">
+                                </div>
+                                <div class="posts-card__title flex d-flex flex-column">
+                                    <a href="${baseurl + objdata.archivourl}" 
+                                       class="card-title mr-3" 
+                                       download="${objdata.archivos}">
+                                        ${objdata.archivos}
+                                    </a>
+                                </div>
+                                <div class="d-flex align-items-center flex-column flex-sm-row posts-card__meta">
+                                    <div class="media ml-sm-auto align-items-center">
+                                        <div class="mr-3 text-50 text-uppercase posts-card__tag d-flex align-items-center">
+                                            <i class="material-icons text-muted-light mr-1">folder_open</i> Archivo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                }
+
             } else {
                 swal("Error", objdata.msg, "error");
             }
         }
     }
-    
 }
+
 
 
 function getvideo(url) {
