@@ -126,7 +126,7 @@
           <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
             <span><a href="#">© TuSistema</a></span>
             <span><a href="#">Contacto</a></span>
-            <span><a href="#">Política de privacidaddddddddddddddd</a></span>
+            <span><a href="#">Política de privacidad</a></span>
           </div>
         </div>
       </div>
