@@ -93,7 +93,7 @@ headerprincipal($data);
                 <div class="card">
                     <div class="card-body py-16pt text-center">
                         <span class="icon-holder icon-holder--outline-secondary rounded-circle d-inline-flex mb-8pt">
-                            <i class="material-icons">timera</i>
+                            <i class="material-icons">timer</i>
                         </span>
                         <h4 class="card-title"><strong>Acceso Limitado</strong></h4>
                         <p class="card-subtitle text-70 mb-24pt">Para acceder a todo el contenido suscribete</p>
