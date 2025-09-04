@@ -85,8 +85,8 @@ function openmodal() {
 }
 //Funciones Usuarios
 window.addEventListener('load', function () {
-    fntcursoscategorias();
-    fntcursosplataforma();
+    //fntcursoscategorias();
+   // fntcursosplataforma();
 }, false)
 
 //Especial
