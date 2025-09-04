@@ -84,7 +84,6 @@
                                 $this->strapellido,
         						$this->strcorreo,
                                 $this->intsuscripcion,
-                                $this->strpassword,
                                 $this->intestado,
                             );
 	        	$request = $this->insert($query,$arrdata);

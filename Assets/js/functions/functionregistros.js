@@ -47,7 +47,7 @@ window.handleCredentialResponse = function(response) {
     // No necesitamos contraseña
 
     // Enviar POST al servidor
-    alert(baseurl + "/Registros/setregistrosgoogle)");
+    
     fetch(baseurl + "/Registros/setregistrosgoogle", {
         method: "POST",
         body: formData
