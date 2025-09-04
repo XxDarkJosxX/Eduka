@@ -56,6 +56,45 @@
             
             return $return;
         }
+
+
+        public function insertregistrogoogle(int $idrol, string $nombre, string $apellido, string $email, string $suscripcion , int $estado){
+            $this->intidrol = $idrol;
+			
+			$this->strnombre = $nombre;
+			$this->strapellido = $apellido;
+            $this->strcorreo = $email;
+            $this->intsuscripcion = $suscripcion;
+      
+			$this->intestado = $estado;
+            
+			$return = 0;
+
+			$sql = "SELECT * FROM tusuarios 
+                    WHERE correo = '{$this->strcorreo}'";
+			$request = $this->selectall($sql);
+
+			if(empty($request))
+			{
+				$query  = "INSERT INTO tusuarios(idroles,nombre, apellidos,correo, suscripcion,estado) 
+								  VALUES(?,?,?,?,?,?)";
+	        	$arrdata = array($this->intidrol,
+        						 
+        						$this->strnombre,
+                                $this->strapellido,
+        						$this->strcorreo,
+                                $this->intsuscripcion,
+                                $this->strpassword,
+                                $this->intestado,
+                            );
+	        	$request = $this->insert($query,$arrdata);
+	        	$return = $request;
+			}else{
+                $return=-1; 
+            }
+            
+            return $return;
+        }
  
 
         public function settokenuser(int $iduser, string $token){

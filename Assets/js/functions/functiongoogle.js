@@ -8,7 +8,8 @@ window.handleCredentialResponse = function(response) {
     // Preparar datos para enviar
     const formData = new FormData();
     formData.append("txtemail", datosUsuario.email);
-    formData.append("txtnombre", datosUsuario.given_name); // o family_name si quieres apellido
+    formData.append("txtnombre", datosUsuario.given_name);
+     // o family_name si quieres apellido
     // No necesitamos contraseña
 
     // Enviar POST al servidor
