@@ -131,7 +131,7 @@ function fntcursosplataforma() {
 }
 //Updates
 function fnteditcurso() {
-     $('#tablecursos').on('click', '.btneditcurso', function () {
+     $('#tablemiscursos').on('click', '.btneditcurso', function () {
             //alert("Click to close...");s
             document.querySelector('#titlemodal').innerHTML = "Actualizar Usuario";
             document.querySelector('.modal-header').classList.replace("headerregister", "headerupdate");
@@ -142,7 +142,7 @@ function fnteditcurso() {
             var idkey = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             //El getusuario esta en Singular !Cuidado confunfir!
-            var ajaxUrl = baseurl + '/Cursos/getcurso/' + idkey;
+            var ajaxUrl = baseurl + '/MisCursos/getcurso/' + idkey;
             request.open("GET", ajaxUrl, true);
             request.send();
             request.onreadystatechange = function () {
@@ -231,10 +231,10 @@ function fntdelcurso() {
 
 function fntclasescurso() {
 
-    $('#tablecursos').on('click', '.btnclases', function () {
+    $('#tablemiscursos').on('click', '.btnclases', function () {
             var idcurso = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var ajaxUrl = baseurl + '/Cursos/asingclases/' + idcurso;
+            var ajaxUrl = baseurl + '/MisCursos/asingclases/' + idcurso;
             request.open("GET", ajaxUrl, true);
             request.send();
             request.onreadystatechange = function () {

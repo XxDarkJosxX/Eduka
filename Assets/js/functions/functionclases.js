@@ -350,49 +350,19 @@ const btnPrevisualizar = document.getElementById('btnprevisualizar');
 
 btnPrevisualizar.addEventListener('click', function (event) {
     let enlace = document.querySelector("#txtenlace").value;
-    htmiframe = `
-        <iframe id="youtubeframeid"
-        class="embed-responsive-item" 
-        src="https://www.youtube.com/embed/${enlace}?modestbranding=1&disablekb=1&rel=0&loop=1&mute=1&showinfo=0&controls=0&iv_load_policy=3" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen
-        ></iframe>
+
+    // Dailymotion thumbnail (sin controles)
+    let htmiframe = `
+        <iframe id="dmframe"
+            class="embed-responsive-item"
+            src="https://www.dailymotion.com/embed/video/${enlace}?background=1&mute=1&autoplay=0&controls=0&ui-logo=false&ui-start-screen-info=false"
+            frameborder="0"
+            allow="autoplay"
+            width="320"
+            height="180"
+            style="border-radius:8px; overflow:hidden;">
+        </iframe>
     `;
+
     document.querySelector('#player').innerHTML = htmiframe;
-
-
-
-    const iframes = document.querySelectorAll("#player");
-
-
-    iframes.forEach(function (iframe) {
-        var player = new Plyr(iframe, {
-
-            controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
-            clickToPlay: true,
-            hideControls: false,
-            showPosterOnEnd: true,
-            disableYouTube: true,
-            youtube: {
-                             noCookie: true,
-                             enablejsapi:1,
-                             rel: 0,
-                             modestbranding: 1,
-                             showinfo: 0,
-                             iv_load_policy: 3,
-                             controls:0,
-                             disableClickHandling: true,
-                             disablekb:1
-                          },
-
-        });
-
-        player.toggleControls(false);
-        player.on('play', function () {
-            player.toggleControls(true);
-        });
-
-    }
-    );
 });
