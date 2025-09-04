@@ -54,6 +54,7 @@ swal({
             <div id="progressBar" style="width:0%;background:#4caf50;height:20px;border-radius:5px;text-align:center;color:white;font-size:12px;">0%</div>
         </div>
     `,
+    html: true, // 👈 muy importante
     showConfirmButton: false,
     allowOutsideClick: false,
     allowEscapeKey: false,
@@ -61,11 +62,12 @@ swal({
     cancelButtonText: "Cancelar subida",
     closeOnCancel: false
 }, function(isConfirm){
-    if(!isConfirm){ // Cuando presiona Cancelar
-        xhr.abort(); // Cancelamos la subida
+    if(!isConfirm){
+        xhr.abort();
         swal("Cancelado", "La subida fue cancelada", "error");
     }
 });
+
 
 // Actualizar barra de progreso
 xhr.upload.onprogress = function(e){
