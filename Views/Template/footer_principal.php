@@ -96,7 +96,7 @@
    
 
 
-        <script src="<?= media() ?>/js/functions/<?= $data['page_js'] ?>"></script>
+        <script src="<?= media() ?>/js/functions/<?= $data['page_js'] ?>?v=<?= time() ?>"></script>
 
         </body>
 </html>
