@@ -1,5 +1,5 @@
 <?php
-class MisCursos extends Controllers
+class Miscursos extends Controllers
 {
     public function __construct()
     {
@@ -12,7 +12,7 @@ class MisCursos extends Controllers
     }
 
     //Visualizacion
-    public function MisCursos()
+    public function Miscursos()
     {
         if(empty($_SESSION['permisosmod']['r'])){
             header('Location: '.base_url()."/dashboard");

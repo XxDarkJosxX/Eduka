@@ -14,9 +14,6 @@ headeradmin($data);
     <br>
     <button class="btn btn-primary btn-sm" type="button" onclick="openmodal()">Nuevo</button>
 </div>
-
-
-
 <div class="container page__container page-section">
 
     <div class="page-separator">
