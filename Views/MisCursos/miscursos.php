@@ -5,7 +5,7 @@ headeradmin($data);
 <!-- Page Content -->
 
 <div class="container page__container page-section pb-0">
-    <h1 class="h2 mb-0">Administracion de Cursos</h1>
+    <h1 class="h2 mb-0">Administracion de mi Cursos</h1>
     <ol class="breadcrumb m-0 p-0">
         <li class="breadcrumb-item">Home</a></li>
         <li class="breadcrumb-item">Administracion</li>
@@ -20,7 +20,7 @@ headeradmin($data);
 <div class="container page__container page-section">
 
     <div class="page-separator">
-        <div class="page-separator__text">Cursos</div>
+        <div class="page-separator__text">Mis Cursos</div>
     </div>
 
     <div class="row">
