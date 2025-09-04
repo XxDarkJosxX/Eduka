@@ -3,18 +3,18 @@
     date_default_timezone_set('UTC');
 
 
-    // const BASE_URL = "https://linen-swallow-444205.hostingersite.com";
-    // const DB_HOST = "localhost";
-    // const DB_NAME = "u251793036_db_educkaonlin";
-    // const DB_USER = "u251793036_db_educkaonlin";
-    // const DB_PASSWORD = "Db_educkaonline1";
+    const BASE_URL = "https://linen-swallow-444205.hostingersite.com";
+    const DB_HOST = "localhost";
+    const DB_NAME = "u251793036_db_educkaonlin";
+    const DB_USER = "u251793036_db_educkaonlin";
+    const DB_PASSWORD = "Db_educkaonline1";
 
    
-    const BASE_URL = "http://localhost/Educka-1";
-    const DB_HOST = "localhost";
-    const DB_NAME = "db_educkaonline";
-    const DB_USER = "root";
-    const DB_PASSWORD = "";
+    // const BASE_URL = "http://localhost/Educka-1";
+    // const DB_HOST = "localhost";
+    // const DB_NAME = "db_educkaonline";
+    // const DB_USER = "root";
+    // const DB_PASSWORD = "";
 
 
     const DB_CHARSET = "utf8";
