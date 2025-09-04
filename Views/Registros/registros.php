@@ -29,17 +29,30 @@ headerprincipal($data);
             <div class="text-center">
                 <button class="btn btn-primary" type="submit">Crear Usuario</button>
             </div>
+
+            <div class="field">
+                <div id="g_id_onload"
+                  data-client_id="196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com"
+                  data-context="signin"
+                  data-ux_mode="popup"
+                  data-callback="handleCredentialResponse"
+                  data-auto_prompt="false">
+                </div>
+
+                <div class="g_id_signin"
+                  data-type="standard"
+                  data-shape="pill"
+                  data-theme="outline"
+                  data-text="signin_with"
+                  data-size="large"
+                  data-logo_alignment="left">
+                </div>
+
+                <div id="status"></div>
+              </div>
         </form>
 
-        <hr class="my-4">
-
-        <!-- Botón de Google -->
-        <div id="g_id_onload"
-             data-client_id="196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com"
-             data-callback="handleCredentialResponse">
-        </div>
-
-        <div class="g_id_signin" data-type="standard"></div>
+      
     </div>
 </div>
 
