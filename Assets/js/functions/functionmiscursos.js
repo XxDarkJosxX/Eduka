@@ -234,7 +234,7 @@ function fntclasescurso() {
     $('#tablemiscursos').on('click', '.btnclases', function () {
             var idcurso = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var ajaxUrl = baseurl + '/MisCursos/asingclases/' + idcurso;
+            var ajaxUrl = baseurl + '/Cursos/asingclases/' + idcurso;
             request.open("GET", ajaxUrl, true);
             request.send();
             request.onreadystatechange = function () {
