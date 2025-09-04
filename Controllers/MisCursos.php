@@ -25,10 +25,9 @@ class MisCursos extends Controllers
         $this->views->getview($this, "miscursos", $data);
     }
     //Visualizacion
-    public function getmiscursos()
+    public function getcursos()
     {
-        $intidautor = $_SESSION['iduser'];
-        $arrdata = $this->model->selectmiscursos($intidautor);
+        $arrdata = $this->model->selectcursos();
         $crudopciones="";
         
         for ($i = 0; $i < count($arrdata); $i++) {

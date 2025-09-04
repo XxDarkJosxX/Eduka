@@ -2,7 +2,7 @@ var tablero;
 //Esto es un js
 //Prueba a com
 document.addEventListener("DOMContentLoaded", function () {
-    tablero = $('#tablemiscursos').DataTable({
+    tablero = $('#tablecursos').DataTable({
 
         initComplete: function () {
             fnteditcurso();
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "url": "Assets/js/plugins/es-ES.json"
         },
         "ajax": {
-            "url": " " + baseurl + "/Miscursos/getmiscursos",
+            "url": " " + baseurl + "/MisCursos/getcursos",
             "dataSrc": ""
         },
         "columns": [
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { "data": 'nombre' },
             { "data": 'titulo' },
             { "data": 'nombrecat' },
-            { "data": 'nombrepla' },
             { "data": 'estado' },
             { "data": 'acciones' }
         ],
@@ -131,7 +130,7 @@ function fntcursosplataforma() {
 }
 //Updates
 function fnteditcurso() {
-     $('#tablemiscursos').on('click', '.btneditcurso', function () {
+     $('#tablecursos').on('click', '.btneditcurso', function () {
             //alert("Click to close...");s
             document.querySelector('#titlemodal').innerHTML = "Actualizar Usuario";
             document.querySelector('.modal-header').classList.replace("headerregister", "headerupdate");
@@ -142,7 +141,7 @@ function fnteditcurso() {
             var idkey = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             //El getusuario esta en Singular !Cuidado confunfir!
-            var ajaxUrl = baseurl + '/MisCursos/getcurso/' + idkey;
+            var ajaxUrl = baseurl + '/Cursos/getcurso/' + idkey;
             request.open("GET", ajaxUrl, true);
             request.send();
             request.onreadystatechange = function () {
@@ -231,7 +230,7 @@ function fntdelcurso() {
 
 function fntclasescurso() {
 
-    $('#tablemiscursos').on('click', '.btnclases', function () {
+    $('#tablecursos').on('click', '.btnclases', function () {
             var idcurso = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             var ajaxUrl = baseurl + '/Cursos/asingclases/' + idcurso;
