@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded",function(){
         var formdata=new FormData(forminsert);
         request.open("POST",ajaxUrl,true);
         request.send(formdata);
-        alert();
         request.onreadystatechange =function(){
+            alert();
             if(request.readyState == 4 && request.status==200){
                 //console.log(request.responseText);
                 var obdata=JSON.parse(request.responseText);
