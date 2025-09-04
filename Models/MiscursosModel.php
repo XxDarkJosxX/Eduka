@@ -31,10 +31,9 @@ public function selectmiscursos($id_usuario_actual)
     $sql = "SELECT
         tu.idusuario,
         tu.nombre,
-        tu.apellidos,
-        tc.idcurso,
-     
         tc.titulo,
+        tc.idcurso,
+        tc.categoria,
         tc.estado,
         tcat.nombre AS nombrecat,
         tplat.nombre AS nombrepla
