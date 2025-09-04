@@ -31,13 +31,7 @@ headerprincipal($data);
             <div class="text-center">
                 <button class="btn btn-primary btncrear" type="submit">Crear Usuario</button>
             
-                    <div id="g_id_onload"
-                        data-client_id="196182658810-gri5vaek708sgnukf8rov1ke9i7iu62d.apps.googleusercontent.com"
-                        data-context="signin"
-                        data-ux_mode="popup"
-                        data-callback="handleCredentialResponse"
-                        data-auto_prompt="false">
-                    </div>
+           
 
                     <div class="g_id_signin"
                         data-type="standard"
