@@ -12,7 +12,7 @@ class Miscursos extends Controllers
     }
 
     //Visualizacion
-    public function Miscursos()
+    public function miscursos()
     {
         if(empty($_SESSION['permisosmod']['r'])){
             header('Location: '.base_url()."/dashboard");
