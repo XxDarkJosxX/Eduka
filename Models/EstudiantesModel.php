@@ -63,7 +63,7 @@ class EstudiantesModel extends Mysql
 
         if (empty($request)) {
             $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos, telefono, correo, suscripcion, password ,estado) 
-								  VALUES(?,?,?,?,?,?,?,?,?)";
+								  VALUES(?,?,?,?,?,?,?,?)";
             $arrdata = array(
                 $this->intidrol,
 
