@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "url": "Assets/js/plugins/es-ES.json"
         },
         "ajax": {
-            "url": " " + baseurl + "/Miscursos/getcursos",
+            "url": " " + baseurl + "/Dcursos/getcursos",
             "dataSrc": ""
         },
         "columns": [
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     forminsert.onsubmit = function (e) {
         e.preventDefault();
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var ajaxUrl = baseurl + '/Cursos/setcurso';
+        var ajaxUrl = baseurl + '/Dcursos/setcurso';
         var formdata = new FormData(forminsert);
         request.open("POST", ajaxUrl, true);
         request.send(formdata);
@@ -92,7 +92,7 @@ window.addEventListener('load', function () {
 function fntcursoscategorias() {
     if (document.querySelector('#listcategorias')) {
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var ajaxUrl = baseurl + '/Cursos/getselecategorias';
+        var ajaxUrl = baseurl + '/Dcursos/getselecategorias';
         request.open("GET", ajaxUrl, true);
         request.send();
 
@@ -112,7 +112,7 @@ function fntcursoscategorias() {
 function fntcursosplataforma() {
     if (document.querySelector('#listplataformas')) {
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var ajaxUrl = baseurl + '/Cursos/getselectplataformas';
+        var ajaxUrl = baseurl + '/Dcursos/getselectplataformas';
         request.open("GET", ajaxUrl, true);
         request.send();
 
@@ -141,7 +141,7 @@ function fnteditcurso() {
             var idkey = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             //El getusuario esta en Singular !Cuidado confunfir!
-            var ajaxUrl = baseurl + '/Cursos/getcurso/' + idkey;
+            var ajaxUrl = baseurl + '/Dcursos/getcurso/' + idkey;
             request.open("GET", ajaxUrl, true);
             request.send();
             request.onreadystatechange = function () {
@@ -195,7 +195,7 @@ function fntdelcurso() {
             }, function (isConfirm) {
                 if (isConfirm) {
                     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-                    var ajaxUrl = baseurl + '/Cursos/delcurso/';
+                    var ajaxUrl = baseurl + '/Dcursos/delcurso/';
                     var strdata = "idusuario=" + idusuarios;
                     request.open("POST", ajaxUrl, true);
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -233,7 +233,7 @@ function fntclasescurso() {
     $('#tablecursos').on('click', '.btnclases', function () {
             var idcurso = this.getAttribute("rl");
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var ajaxUrl = baseurl + '/Cursos/asingclases/' + idcurso;
+            var ajaxUrl = baseurl + '/Dcursos/asingclases/' + idcurso;
             request.open("GET", ajaxUrl, true);
             request.send();
             request.onreadystatechange = function () {

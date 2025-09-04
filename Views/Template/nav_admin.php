@@ -160,7 +160,7 @@
                              </a>
                          </li>
                               <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="<?= base_url() ?>/MisCursos">
+                             <a class="sidebar-menu-button" href="<?= base_url() ?>/">
                                  <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">school</span>
                                  <span class="sidebar-menu-text">Mis Cursos</span>
                              </a>
