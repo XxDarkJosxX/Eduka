@@ -39,6 +39,7 @@
                 $intidrol=intval(2);
                 $intsuscripcion = intval(0);
                 //Esto se basa en el id oculto que se usa en rl 
+                echo $strnombre . $strapellido .$strcorreo . $inttelefono .$intestado; 
                 if($idusuario == 0)
                 {
                     //Se incrementa mediante la respuesta del request de model
