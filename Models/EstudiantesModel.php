@@ -44,7 +44,7 @@ class EstudiantesModel extends Mysql
     }
 
 
-    public function insertestudiantes(int $idrol, string $nombre, string $apellido, int $telefono, string $email,  int $suscripcion, string $password, int $estado)
+    public function insertestudiantes(int $idrol, string $nombre, string $apellido, int $telefono, string $email,  string $suscripcion, string $password, int $estado)
     {
         $this->intidrol = $idrol;
 
