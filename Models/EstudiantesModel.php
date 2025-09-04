@@ -44,28 +44,29 @@ class EstudiantesModel extends Mysql
     }
 
 
-    public function insertestudiantes(int $idrol, string $nombre, string $apellido, int $telefono, string $email,  string $suscripcion, string $password, int $estado)
+    public function insertestudiantes(int $idrol, string $nombre, string $apellido, string $email, int $telefono, string $suscripcion, string $password, int $estado)
     {
         $this->intidrol = $idrol;
 
         $this->strnombre = $nombre;
         $this->strapellido = $apellido;
-        $this->inttelefono = $telefono;
         $this->strcorreo = $email;
+        $this->inttelefono = $telefono;
         $this->intsuscripcion = $suscripcion;
         $this->strpassword = $password;
         $this->intestado = $estado;
 
         $return = 0;
+
         $sql = "SELECT * FROM tusuarios 
-                    WHERE correo = '{$this->strcorreo}' ";
+                    WHERE correo = '{$this->strcorreo}'";
         $request = $this->selectall($sql);
 
         if (empty($request)) {
             $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos,correo, telefono, suscripcion, password ,estado) 
 								  VALUES(?,?,?,?,?,?,?,?)";
             $arrdata = array(
-                  $this->intidrol,
+                $this->intidrol,
 
                 $this->strnombre,
                 $this->strapellido,
