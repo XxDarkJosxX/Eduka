@@ -1,5 +1,5 @@
 <?php
-class MisCursos extends Controllers
+class Miscursos extends Controllers
 {
     public function __construct()
     {
