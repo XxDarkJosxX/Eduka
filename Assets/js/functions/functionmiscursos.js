@@ -2,7 +2,7 @@ var tablero;
 //Esto es un js
 //Prueba a com
 document.addEventListener("DOMContentLoaded", function () {
-    tablero = $('#tablecursos').DataTable({
+    tablero = $('#tablemiscursos').DataTable({
 
         initComplete: function () {
             fnteditcurso();

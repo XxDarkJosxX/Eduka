@@ -25,7 +25,7 @@ headeradmin($data);
             <div class="card">
                 <div class="card-body">
                     <div class="">
-                        <table class="table table-striped table-bordered dt-responsive nowrap" id="tablecursos" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table class="table table-striped table-bordered dt-responsive nowrap" id="tablemiscursos" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>ID</th>
