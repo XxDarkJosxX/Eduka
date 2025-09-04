@@ -1,6 +1,6 @@
 <?php 
 //Moises
-    class CursosModel extends Mysql{
+    class DcursosModel extends Mysql{
         //Nivel de accesos
 
         private $intidcurso;
