@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "url": "Assets/js/plugins/es-ES.json"
         },
         "ajax": {
-            "url": " " + baseurl + "/MisCursos/getcursos",
+            "url": " " + baseurl + "/Miscursos/getcursos",
             "dataSrc": ""
         },
         "columns": [
