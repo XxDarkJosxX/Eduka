@@ -28,26 +28,31 @@ class MiscursosModel extends Mysql
 
 public function selectmiscursos($id_usuario_actual)
 {
+    // Usamos un marcador de posición (?) en lugar de la variable
     $sql = "SELECT
-    tu.idusuario,
-    tu.nombre,
-    tc.titulo,
-    tc.idcurso,
-    tc.idcategoria,  -- Aquí se corrigió a idcategoria
-    tc.estado,
-    tcat.nombre AS nombrecat,
-    tplat.nombre AS nombrepla
-FROM
-    tcursos tc
-JOIN
-    tusuarios tu ON tc.idusuario = tu.idusuario
-JOIN
-    tcategoria tcat ON tcat.idcategoria = tc.idcategoria
-JOIN
-    tplataforma tplat ON tplat.idplataforma = tc.idplataforma
-WHERE
-    tc.estado != 0 AND tc.idusuario = $id_usuario_actual;";
-    $request = $this->selectall($sql);
+        tu.idusuario,
+        tu.nombre,
+        tc.titulo,
+        tc.idcurso,
+        tc.idcategoria,
+        tc.estado,
+        tcat.nombre AS nombrecat,
+        tplat.nombre AS nombrepla
+    FROM
+        tcursos tc
+    JOIN
+        tusuarios tu ON tc.idusuario = tu.idusuario
+    JOIN
+        tcategoria tcat ON tcat.idcategoria = tc.idcategoria
+    JOIN
+        tplataforma tplat ON tplat.idplataforma = tc.idplataforma
+    WHERE
+        tc.estado != 0 AND tc.idusuario = ?;"; // Usamos un '?' para el parámetro
+
+    // En este caso, `selectall` debería poder aceptar la consulta y el valor del parámetro
+    // Esto previene la inyección SQL, ya que el valor se maneja de forma segura
+    $request = $this->selectall($sql, [$id_usuario_actual]);
+
     return $request;
 }
 

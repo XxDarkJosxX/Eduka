@@ -26,9 +26,9 @@ class EstudiantesModel extends Mysql
     public function selectestudiantes()
     {
         $sql = "SELECT tu.idusuario, tu.idroles, tu.nombre, tu.apellidos, tu.correo, tu.telefono,tu.password,tu.suscripcion, tu.estado, tr.tipo 
-FROM tusuarios tu 
-JOIN troles tr ON tu.idroles = tr.idroles 
-WHERE tu.idroles = 3 AND (tu.estado = 1 OR tu.estado = 0);";        
+                FROM tusuarios tu 
+                JOIN troles tr ON tu.idroles = tr.idroles 
+                WHERE tu.idroles = 3 AND (tu.estado = 1 OR tu.estado = 0);";
         $request = $this->selectall($sql);
         return $request;
     }
@@ -47,7 +47,7 @@ WHERE tu.idroles = 3 AND (tu.estado = 1 OR tu.estado = 0);";
     public function insertestudiantes(int $idrol, string $nombre, string $apellido, int $telefono, string $email,  string $suscripcion, string $password, int $estado)
     {
         $this->intidrol = $idrol;
-      
+
         $this->strnombre = $nombre;
         $this->strapellido = $apellido;
         $this->inttelefono = $telefono;
@@ -63,10 +63,10 @@ WHERE tu.idroles = 3 AND (tu.estado = 1 OR tu.estado = 0);";
 
         if (empty($request)) {
             $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos, telefono, correo, suscripcion, password ,estado) 
-								  VALUES(?,?,?,?,?,?,?,?,?)";
+								  VALUES(?,?,?,?,?,?,?,?)";
             $arrdata = array(
                 $this->intidrol,
-               
+
                 $this->strnombre,
                 $this->strapellido,
                 $this->inttelefono,
@@ -88,7 +88,7 @@ WHERE tu.idroles = 3 AND (tu.estado = 1 OR tu.estado = 0);";
     {
 
         $this->intidusuario = $idusuario;
-     
+
         $this->strnombre    = $nombre;
         $this->strapellido  = $apellido;
         $this->strcorreo = $correo;
@@ -103,7 +103,7 @@ WHERE tu.idroles = 3 AND (tu.estado = 1 OR tu.estado = 0);";
 
             $queryupdate = "UPDATE tusuarios SET  nombre=?, apellidos=?, correo=?,telefono=?,estado=? WHERE idusuario=$this->intidusuario";
             $arrdata = array(
-               
+
                 $this->strnombre,
                 $this->strapellido,
                 $this->strcorreo,
