@@ -12,7 +12,7 @@ class Miscursos extends Controllers
     }
 
     //Visualizacion
-    public function Cursos()
+    public function Miscursos()
     {
         if(empty($_SESSION['permisosmod']['r'])){
             header('Location: '.base_url()."/dashboard");
@@ -22,7 +22,7 @@ class Miscursos extends Controllers
         $data['page_name'] = "usuarios";
         $data['page_js'] = "functioncursos.js";
 
-        $this->views->getview($this, "cursos", $data);
+        $this->views->getview($this, "miscursos", $data);
     }
     //Visualizacion
     public function getcursos()
