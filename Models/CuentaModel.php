@@ -27,7 +27,6 @@
         public function updatecuenta(int $idaut,string $nombre ,string $apellido,string $telefono){
 
             $this->intidautor = $idaut;
-
 			$this->strnombre    = $nombre;
 			$this->strapellido  = $apellido;
 			$this->strtelefono  = $telefono;
@@ -36,7 +35,7 @@
             $requestupdate = $this->selectall($sql);
 
             if(empty($requestupdate)){
-                    $queryupdate="UPDATE tusuarios SET ci=?, nombre=?,apellidos=?,telefono=? WHERE idusuario =$this->intidautor";
+                    $queryupdate="UPDATE tusuarios SET nombre=?,apellidos=?,telefono=? WHERE idusuario =$this->intidautor";
                     $arrdata = array(
                         
                         $this->strnombre,
