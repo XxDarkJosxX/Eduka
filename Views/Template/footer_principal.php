@@ -4,7 +4,7 @@
             <div class="bg-white border-top-2 mt-auto">
                 <div class="container page__container page-section d-flex flex-column">
                     <p class="text-70 brand mb-24pt">
-                        <img class="brand-icon" src="" width="30" alt="Lusasma"> 
+                        <img class="brand-icon" src="" width="30" alt="Luma"> 
                     </p>
                     <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for
                         modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher
