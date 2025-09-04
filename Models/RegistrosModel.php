@@ -33,7 +33,7 @@ class RegistrosModel extends Mysql {
         $request = $this->selectall($sql);
 
         if (empty($request)) {
-            $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos, correo, telefono, suscripcion, password, estado) 
+            $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos, correo, suscripcion, password, estado) 
                         VALUES(?,?,?,?,?,?,?)";
             $arrdata = array(
                 $this->intidrol,

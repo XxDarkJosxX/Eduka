@@ -29,44 +29,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 }, false);
-function handleCredentialResponse(response) {
-    // Decodificar JWT
-    const data = parseJwt(response.credential);
+  // Captura de respuesta de Google
+    function handleCredentialResponse(response) {
+        const data = parseJwt(response.credential);
 
-    console.log(data); // Aquí viene el perfil de Google
+        // Mandar datos a tu backend
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = baseurl + '/Registros/setregistros';
+        var formData = new FormData();
 
-    // Mandar al backend (tu controlador)
-    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var ajaxUrl = baseurl + '/Registros/setregistrosgmail';
-    var formData = new FormData();
-    formData.append("txtnombre", data.given_name);
-    formData.append("txtapellido", data.family_name);
-    formData.append("txtcorreo", data.email);
+        formData.append("txtnombre", data.given_name || "");
+        formData.append("txtapellido", data.family_name || "");
+        formData.append("txtcorreo", data.email || "");
+      
+        formData.append("txtcontrasenia", ""); // vacío → Controller genera dummy
 
-
-    request.open("POST", ajaxUrl, true);
-    request.send(formData);
-    request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            var obdata = JSON.parse(request.responseText);
-            if (obdata.status) {
-                swal("Usuario Creado con Gmail", obdata.msg, "success");
-            } else {
-                swal("Error", obdata.msg, "error");
+        request.open("POST", ajaxUrl, true);
+        request.send(formData);
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var obdata = JSON.parse(request.responseText);
+                if (obdata.status) {
+                    swal("Usuario Gmail Registrado", obdata.msg, "success");
+                } else {
+                    swal("Error", obdata.msg, "error");
+                }
             }
         }
     }
-}
 
-// Función para decodificar el JWT
-function parseJwt(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
-}
+    // Función para decodificar el JWT de Google
+    function parseJwt(token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    }
 
 

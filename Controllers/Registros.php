@@ -32,7 +32,7 @@ public function setregistros()
             $strnombre     = ucwords(strclean($_POST['txtnombre']));
             $strapellido   = ucwords(strclean($_POST['txtapellido']));
             $strcorreo     = strtolower(strclean($_POST['txtcorreo']));
-            $inttelefono   = empty($_POST['txttelefono']) ? 0 : intval(strclean($_POST['txttelefono']));
+        
             $intestado     = 1;
             $intidrol      = 3;
             $intsuscripcion= 0;
@@ -46,7 +46,7 @@ public function setregistros()
                 $strnombre,
                 $strapellido,
                 $strcorreo,
-                $inttelefono,
+           
                 $intsuscripcion,
                 $strpasswordencript,
                 $intestado
