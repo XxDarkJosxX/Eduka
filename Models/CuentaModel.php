@@ -3,7 +3,7 @@
     class CuentaModel extends Mysql{
         //Nivel de accesos
         private $intidautor;
-
+        private $stringtelefono;
         private $strnombre;
         private $strapellido;
         private $strtelefono;
@@ -27,6 +27,8 @@
         public function updatecuenta(int $idaut,string $nombre ,string $apellido,string $telefono){
 
             $this->intidautor = $idaut;
+          
+       
           
 			$this->strnombre    = $nombre;
 			$this->strapellido  = $apellido;

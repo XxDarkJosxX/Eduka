@@ -32,11 +32,12 @@
                 $strnombre = ucwords(strclean($_POST['txtnombre']));
                 $strapellido = ucwords(strclean($_POST['txtapellido']));
                 $strtelefono = ucwords(strclean($_POST['txttelefono']));
+           
 
                 if($intidautor != 0){
                     $requestusuario = $this->model->updatecuenta(
                     $intidautor,
-                 
+                    $intidautor,
                     $strnombre, 
                     $strapellido, 
                     $strtelefono

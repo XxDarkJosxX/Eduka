@@ -40,7 +40,7 @@ function fnteditcuenta() {
 
 
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var ajaxUrl = baseurl + '/Cuenta/getusuario';
+    var ajaxUrl = baseurl + '/Cuenta/setcuentas';
     request.open("GET", ajaxUrl, true);
     request.send();
     request.onreadystatechange = function () {
