@@ -54,6 +54,6 @@ headeradmin($data);
 <?php
 
 footeradmin($data);
-getmodal('modalcursos', $data);
+getmodal('modalmiscursos', $data);
 footerscript($data);
 ?>
