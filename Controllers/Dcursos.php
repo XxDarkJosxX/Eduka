@@ -1,5 +1,5 @@
 <?php
-class Miscursos extends Controllers
+class Dcursos extends Controllers
 {
     public function __construct()
     {
@@ -12,7 +12,7 @@ class Miscursos extends Controllers
     }
 
     //Visualizacion
-    public function Miscursos()
+    public function Dcursos()
     {
         if(empty($_SESSION['permisosmod']['r'])){
             header('Location: '.base_url()."/dashboard");
@@ -22,7 +22,7 @@ class Miscursos extends Controllers
         $data['page_name'] = "usuarios";
         $data['page_js'] = "functioncursos.js";
 
-        $this->views->getview($this, "miscursos", $data);
+        $this->views->getview($this, "dcursos", $data);
     }
     //Visualizacion
     public function getcursos()
