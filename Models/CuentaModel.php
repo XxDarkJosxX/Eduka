@@ -27,9 +27,7 @@
         public function updatecuenta(int $idaut,string $nombre ,string $apellido,string $telefono){
 
             $this->intidautor = $idaut;
-          
-       
-          
+
 			$this->strnombre    = $nombre;
 			$this->strapellido  = $apellido;
 			$this->strtelefono  = $telefono;

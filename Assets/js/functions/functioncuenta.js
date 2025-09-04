@@ -36,11 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
 }, false);
 
 //Update
+// Visualizacion de datos cuando dse modififca
 function fnteditcuenta() {
-
-
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var ajaxUrl = baseurl + '/Cuenta/setcuentas';
+    var ajaxUrl = baseurl + '/Cuenta/getusuario';
     request.open("GET", ajaxUrl, true);
     request.send();
     request.onreadystatechange = function () {

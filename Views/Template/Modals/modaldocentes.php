@@ -21,17 +21,17 @@
                       
                         <div class="form-group col-md-4">
                             <label class="control-label">Nombre</label>
-                            <input class="form-control" id="txtnombre" name="txtnombre" minlength="2" maxlength="20" pattern="[a-zA-Z ]{2,20}" type="text" placeholder="Nombre del Usuario" required="">
+                            <input class="form-control" id="txtnombre" name="txtnombre" minlength="2" maxlength="20"  type="text" placeholder="Nombre del Usuario" required="">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="control-label">Apellidos</label>
-                            <input class="form-control" id="txtapellido" name="txtapellido" minlength="4" maxlength="20" pattern="[a-zA-Z ]{4,20}" type="text" placeholder="Apellido del Usuario" required="">
+                            <input class="form-control" id="txtapellido" name="txtapellido" minlength="4" maxlength="20"  type="text" placeholder="Apellido del Usuario" required="">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="control-label">Correo</label>
-                            <input type="text" class="form-control" id="txtcorreo" name="txtcorreo" minlength="8" maxlength="50" pattern="[a-zA-Z0-9$@.-]{8,50}" placeholder="Correo" required="">
+                            <input type="text" class="form-control" id="txtcorreo" name="txtcorreo" minlength="8" maxlength="50"  placeholder="Correo" required="">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="control-label">Numero telefonico</label>
