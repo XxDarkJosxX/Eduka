@@ -37,7 +37,6 @@
                 if($intidautor != 0){
                     $requestusuario = $this->model->updatecuenta(
                     $intidautor,
-                    $intidautor,
                     $strnombre, 
                     $strapellido, 
                     $strtelefono
