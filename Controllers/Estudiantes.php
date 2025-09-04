@@ -36,7 +36,7 @@
                 $strcorreo = strtolower(strclean($_POST['txtcorreo']));
                 $inttelefono = intval(strclean($_POST['txttelefono']));
                 $intestado = intval(strclean($_POST['liststatus']));
-                $intidrol=intval(2);
+                $intidrol=intval(3);
                 $intsuscripcion = intval(0);
                 //Esto se basa en el id oculto que se usa en rl 
 
@@ -47,7 +47,6 @@
                      $strpassword =  empty($_POST['txtcontrasenia']) ? passgenerator() : $_POST['txtcontrasenia'];
                     $strpasswordencript=hash("SHA256",$strpassword);
 
-                    echo($strpasswordencript);
                     $requestusuario = $this->model->insertestudiantes(
                     $intidrol,
                     
