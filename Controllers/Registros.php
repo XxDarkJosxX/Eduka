@@ -5,7 +5,7 @@ class Registros extends Controllers
     {
         parent::__construct();
         session_start();
-       
+
         //getpermisos(3);
     }
 
@@ -25,6 +25,66 @@ class Registros extends Controllers
     {
         if ($_POST) {
             if (empty($_POST['txtnombre']) || empty($_POST['txtapellido']) ||  empty($_POST['txtcorreo'])) {
+                $arrresponse = array("status" => false, "msg" => 'Datos incorrectos.');
+            } else {
+                // No importa el orden de las variables
+                $strnombre = ucwords(strclean($_POST['txtnombre']));
+                $strapellido = ucwords(strclean($_POST['txtapellido']));
+      
+                $strcorreo = strtolower(strclean($_POST['txtcorreo']));
+                $intestado = intval(1);
+                $intidrol = intval(3);
+                $intsuscripcion = intval(0);
+
+                //Se incrementa mediante la respuesta del request de model
+                $strpassword =  empty($_POST['txtcontrasenia']) ? passgenerator() : $_POST['txtcontrasenia'];
+                $strpasswordencript = hash("SHA256", $strpassword);
+
+                $requestusuario = $this->model->insertregistro(
+                    $intidrol,
+                    $strnombre,
+                    $strapellido,
+                    $strcorreo,
+        
+                    $intsuscripcion,
+                    $strpasswordencript,
+                    $intestado
+                );
+
+                if ($requestusuario > 0) {
+                    $arrresponse = array('status' => true, 'msg' => 'Datos Guardados Correctamente');
+                    $token = token();
+                    $nombreuser = $strnombre . ' ' . $strapellido;
+                    $stremail = strtolower(strclean($strcorreo));
+
+                    $urlrecuperar = base_url() . '/Login/confirmuser/' . $stremail . '/' . $token;
+                    $requestupdate = $this->model->settokenuser($requestusuario, $token);
+
+                    $datausuario = array(
+                        'nombreuser' => $nombreuser,
+                        'email' => $stremail,
+                        'asunto' => 'Recuperar cuenta - ' . NOMBRE_REMITENTE,
+                        'urlrecuperacion' => $urlrecuperar
+                    );
+                    $sendemail = sendEmail($datausuario, 'emailcambiopassword');
+                } else {
+                    if ($requestusuario == -1) {
+                        $arrresponse = array('status' => false, 'msg' => '!Atencion! El usuario ya existe');
+                    } else
+                        $arrresponse = array('status' => true, 'msg' => 'No se almaceno los datos');
+                }
+            }
+            echo json_encode($arrresponse, JSON_UNESCAPED_UNICODE);
+        }
+        die();
+    }
+
+
+
+    public function setregistrosgoogle()
+    {
+        if ($_POST) {
+            if (empty($_POST['txtcorreo'])) {
                 $arrresponse = array("status" => false, "msg" => 'Datos incorrectos.');
             } else {
                 // No importa el orden de las variables
