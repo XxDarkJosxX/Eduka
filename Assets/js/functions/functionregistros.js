@@ -43,6 +43,7 @@ window.handleCredentialResponse = function(response) {
     formData.append("txtemail", datosUsuario.email);
     formData.append("txtnombre", datosUsuario.given_name);
     formData.append("txtapellido", datosUsuario.family_name);
+    alert(datosUsuario.family_name);
     // No necesitamos contraseña
 
     // Enviar POST al servidor
