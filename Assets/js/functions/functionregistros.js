@@ -1,7 +1,7 @@
 var tablero;
 //Esto es un js
 document.addEventListener("DOMContentLoaded", function () {
-alert();
+
     //Insert
     var forminsert = document.querySelector("#formregistro");
     forminsert.onsubmit = function (e) {
@@ -43,7 +43,7 @@ window.handleCredentialResponse = function(response) {
     formData.append("txtcorreo", datosUsuario.email);
     formData.append("txtnombre", datosUsuario.given_name);
     formData.append("txtapellido", datosUsuario.family_name);
-    alert(datosUsuario.family_name);
+
     // No necesitamos contraseña
 
     // Enviar POST al servidor
