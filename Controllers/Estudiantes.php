@@ -39,14 +39,15 @@
                 $intidrol=intval(2);
                 $intsuscripcion = intval(0);
                 //Esto se basa en el id oculto que se usa en rl 
-                echo $strnombre . $strapellido .$strcorreo . $inttelefono .$intestado; 
+
                 if($idusuario == 0)
                 {
                     //Se incrementa mediante la respuesta del request de model
                     $option = 1;
-                    $strpassword =  empty($_POST['txtcontrasenia']) ? passgenerator() : $_POST['txtcontrasenia'];
+                     $strpassword =  empty($_POST['txtcontrasenia']) ? passgenerator() : $_POST['txtcontrasenia'];
                     $strpasswordencript=hash("SHA256",$strpassword);
 
+                    echo($strpasswordencript);
                     $requestusuario = $this->model->insertestudiantes(
                     $intidrol,
                     
