@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded",function(){
             { "data": 'correo' },
             { "data": 'suscripcion' },
             { "data": 'estado' },
-            { "data": 'accioneses' }
+            { "data": 'acciones' }
         ],
         "resonsieve":"true",
         "bDestroy":true,
