@@ -37,10 +37,69 @@ document.addEventListener("DOMContentLoaded", function () {
     forminsert.onsubmit = function (e) {
         e.preventDefault();
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+
         var ajaxUrl = baseurl + '/Clases/setclase';
         var formdata = new FormData(forminsert);
-        request.open("POST", ajaxUrl, true);
-        request.send(formdata);
+
+
+
+        var xhr = new XMLHttpRequest();
+xhr.open("POST", ajaxUrl, true);
+
+// Mostrar swal con barra de progreso
+swal({
+    title: "Subiendo archivo...",
+    text: `
+        <div id="progressContainer" style="width:100%;background:#eee;border-radius:5px;">
+            <div id="progressBar" style="width:0%;background:#4caf50;height:20px;border-radius:5px;text-align:center;color:white;font-size:12px;">0%</div>
+        </div>
+    `,
+    showConfirmButton: false,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    showCancelButton: true,
+    cancelButtonText: "Cancelar subida",
+    closeOnCancel: false
+}, function(isConfirm){
+    if(!isConfirm){ // Cuando presiona Cancelar
+        xhr.abort(); // Cancelamos la subida
+        swal("Cancelado", "La subida fue cancelada", "error");
+    }
+});
+
+// Actualizar barra de progreso
+xhr.upload.onprogress = function(e){
+    if(e.lengthComputable){
+        var percent = Math.round((e.loaded / e.total) * 100);
+        var progressBar = document.getElementById("progressBar");
+        if(progressBar){
+            progressBar.style.width = percent + "%";
+            progressBar.textContent = percent + "%";
+        }
+    }
+};
+
+xhr.onload = function(){
+    if(xhr.status == 200){
+        var obdata = JSON.parse(xhr.responseText);
+        if(obdata.status){
+            swal("Éxito", obdata.msg, "success");
+            $('#modalformclases').modal("hide");
+            forminsert.reset();
+            tablero.ajax.reload();
+        } else {
+            swal("Error", obdata.msg, "error");
+        }
+    } else {
+        swal("Error", "Error en el servidor", "error");
+    }
+};
+
+xhr.send(formdata);
+
+
+
+
         request.onreadystatechange = function () {
 
             if (request.readyState == 4 && request.status == 200) {
