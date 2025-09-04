@@ -79,7 +79,7 @@
         </script> -->
         <script src="<?= media() ?>/js/navscript.js"></script>
 
-        <script src="<?= media() ?>/js/functions/<?= $data['page_js'] ?>?v2"></script>
+        <script src="<?= media() ?>/js/functions/<?= $data['page_js'] ?>?v3"></script>
 
         </body>
 </html>
