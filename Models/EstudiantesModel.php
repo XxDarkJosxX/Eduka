@@ -62,18 +62,18 @@ class EstudiantesModel extends Mysql
         $request = $this->selectall($sql);
 
         if (empty($request)) {
-            $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos, telefono, correo, suscripcion, password ,estado) 
+            $query  = "INSERT INTO tusuarios(idroles,nombre, apellidos,correo, telefono, suscripcion, password ,estado) 
 								  VALUES(?,?,?,?,?,?,?,?)";
             $arrdata = array(
-                $this->intidrol,
+                  $this->intidrol,
 
                 $this->strnombre,
                 $this->strapellido,
-                $this->inttelefono,
                 $this->strcorreo,
+                $this->inttelefono,
                 $this->intsuscripcion,
                 $this->strpassword,
-                $this->intestado
+                $this->intestado,
             );
             $request = $this->insert($query, $arrdata);
             $return = $request;
