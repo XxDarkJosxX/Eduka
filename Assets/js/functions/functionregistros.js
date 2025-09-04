@@ -40,7 +40,7 @@ window.handleCredentialResponse = function(response) {
 
     // Preparar datos para enviar
     const formData = new FormData();
-    formData.append("txtemail", datosUsuario.email);
+    formData.append("txtcorreo", datosUsuario.email);
     formData.append("txtnombre", datosUsuario.given_name);
     formData.append("txtapellido", datosUsuario.family_name);
     alert(datosUsuario.family_name);
