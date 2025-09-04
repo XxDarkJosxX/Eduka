@@ -23,7 +23,6 @@
         //Insert 
         //Logica update como
             public function setestudiantes(){
-                echo "hola";
             if($_POST){	
             if(empty($_POST['txtnombre']) || empty($_POST['txtapellido']) || empty($_POST['txtcorreo']) )
             {
