@@ -56,7 +56,7 @@ function getclase(){
                 getvideo(objdata.enlace);
 
                 // 🔹 Renderizar archivo adicional si existe
-                if (objdata.archivos && objdata.archivourl) {
+                if (objdata.archivos || objdata.archivourl) {
                     const fileSection = document.querySelector('#fileSection');
                     fileSection.innerHTML = `
                         <div class="card posts-card mb-0">
