@@ -38,14 +38,13 @@ document.addEventListener("DOMContentLoaded",function(){
     forminsert.onsubmit=function(e){
         e.preventDefault();
         var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var ajaxUrl = baseurl+'/Docentes/setdocentes';
+        var ajaxUrl = baseurl + '/Docentes/setdocentes';
         var formdata=new FormData(forminsert);
         request.open("POST",ajaxUrl,true);
         request.send(formdata);
         request.onreadystatechange =function(){
             if(request.readyState == 4 && request.status==200){
                 //console.log(request.responseText);
-                alert();
                 var obdata=JSON.parse(request.responseText);
                 //console.log(obdata);
                 if(obdata.status){
