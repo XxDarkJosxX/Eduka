@@ -22,7 +22,7 @@ class CategoriasModel extends Mysql
         // $request = $this->selectall($sql);
         // return $request;
 
-       $sql = "SELECT * FROM tcategoria";
+       $sql = "SELECT * FROM tcategoria/";
         $request = $this->selectall($sql);
         return $request;
 

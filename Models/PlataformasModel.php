@@ -45,7 +45,7 @@ class PlataformasModel extends Mysql
         return $return;
     }
     //Update
-    public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
+ public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
     {
 
         $this->intidplatafo = $idplatafor;
@@ -53,12 +53,15 @@ class PlataformasModel extends Mysql
         $this->strdescripcion = $descripcion;
         $this->intestado    = $estado;
 
-        $sql = "SELECT * FROM tplataforma WHERE nombre='$this->strnombre' AND idplataforma != $this->intidplatafo";
-        $requestupdate = $this->selectall($sql);
+        // Consulta preparada para evitar inyección de SQL
+        $sql = "SELECT * FROM tplataforma WHERE nombre = ? AND idplataforma != ?";
+        $arrdata = array($this->strnombre, $this->intidplatafo);
+        $requestupdate = $this->selectall($sql, $arrdata);
 
         if (empty($requestupdate)) {
-            $queryupdate = " UPDATE tplataforma SET nombre=? ,estado=? ,descripcion=? WHERE idplataforma=$this->intidplatafo";
-            $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion);
+            // Corrección: Usar ? para todos los valores y pasarlos en el array
+            $queryupdate = "UPDATE tplataforma SET nombre = ?, estado = ?, descripcion = ? WHERE idplataforma = ?";
+            $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion, $this->intidplatafo);
             $requestupdate = $this->update($queryupdate, $arrdata);
             $return = $requestupdate;
         } else {
@@ -67,7 +70,6 @@ class PlataformasModel extends Mysql
 
         return $return;
     }
-
 
     //parte del update
     public function selectplataforma(int $idplataforma)
