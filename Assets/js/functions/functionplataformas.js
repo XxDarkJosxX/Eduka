@@ -79,10 +79,10 @@ function openmodal() {
 
 }
 //Funciones Usuarios
-window.addEventListener('load', function () {
-    fnteditplataforma();
-    fntdelplataforma();
-}, false)
+// window.addEventListener('load', function () {
+//     fnteditplataforma();
+//     fntdelplataforma();
+// }, false)
 
 
 //Update

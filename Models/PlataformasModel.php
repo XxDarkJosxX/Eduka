@@ -67,7 +67,9 @@
         //parte del update
         public function selectplataforma(int $idplataforma){
             $this->intidplatafo= $idplataforma;
-            $sql="SELECT * FROM tplataforma WHERE idplataforma = $this->intidplatafo";
+            $sql="SELECT tp.idplataforma, tp.nombre, tp.descripcion, tp.estado
+            FROM tplataforma tp
+            WHERE tp.idplataforma = $this->intidplatafo";
             $request=$this->select($sql);
             return $request;
         }

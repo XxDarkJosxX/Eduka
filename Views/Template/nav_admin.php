@@ -72,6 +72,7 @@
 
              <div class="tab-content">
 
+              <?php if (!empty($_SESSION['permisos'][2]['r'])) { ?>
                  <div class="tab-pane fade active show" id="sm_usuarios">
                      <a class="sidebar-brand navadmin">
                          <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
@@ -132,6 +133,8 @@
                          </li>
                      </ul>
                  </div>
+
+             <?php } ?>
 
                  <div class="tab-pane" id="sm_cursos">
                      <a class="sidebar-brand navadmin">
