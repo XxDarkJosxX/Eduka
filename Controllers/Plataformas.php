@@ -1,11 +1,12 @@
 <?php 
     class Plataformas extends Controllers{
         public function __construct() {
+            parent::__construct();
             session_start();
             if(empty($_SESSION['login'])){
                 header('Location: '.base_url()."/login");
             }
-            parent::__construct();
+          
             getpermisos(9);
         }
         
@@ -38,7 +39,7 @@
                 
                 $crudopciones='<div class="dropdown">
                 <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
-                <div class="dropdown-menu dropdown-menu-right" style="">
+                <div class="dropdown-menu dropdown-menu-right" >
                     <a class="dropdown-item btneditplataforma" rl="'.$arrdata[$i]['idplataforma'].'">Editar</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger btndelplataforma" rl="'.$arrdata[$i]['idplataforma'].'">Eliminar</a>

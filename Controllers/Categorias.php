@@ -6,7 +6,7 @@
             if(empty($_SESSION['login'])){
                 header('Location: '.base_url()."/login");
             }
-            getpermisos(8);
+            getpermisos(9);
         }
         
         //Visualizacion
@@ -14,6 +14,7 @@
             if(empty($_SESSION['permisosmod']['r'])){
                 header('Location: '.base_url()."/dashboard");
             }
+            $data['page_id'] = 1;
             $data['page_tag'] = "Categorias";
             $data['page_title']= "Pagina Principal";
             $data['page_name'] = "categorias";

@@ -15,6 +15,16 @@ class PlataformasModel extends Mysql
         parent::__construct();
     }
     //Visualizacion
+
+    public function selectplataforma(int $idplataforma)
+    {
+        $this->intidplatafo = $idplataforma;
+        $sql = "SELECT tp.idplataforma, tp.nombre, tp.descripcion, tp.estado
+            FROM tplataforma tp
+            WHERE tp.idplataforma = $this->intidplatafo";
+        $request = $this->select($sql);
+        return $request;
+    }
     public function selecplataformas()
     {
 
@@ -64,21 +74,11 @@ class PlataformasModel extends Mysql
         } else {
             $return = -1;
         }
+ 
 
         return $return;
     }
 
-
-    //parte del update
-    public function selectplataforma(int $idplataforma)
-    {
-        $this->intidplatafo = $idplataforma;
-        $sql = "SELECT tp.idplataforma, tp.nombre, tp.descripcion, tp.estado
-            FROM tplataforma tp
-            WHERE tp.idplataforma = $this->intidplatafo";
-        $request = $this->select($sql);
-        return $request;
-    }
 
 
 
@@ -88,10 +88,10 @@ class PlataformasModel extends Mysql
     {
         $this->intidplatafo = $idplataforma;
 
-        $sql = "SELECT * FROM tcursos WHERE idplataforma=$this->intidplatafo";
+       /* $sql = "SELECT * FROM tcursos WHERE idplataforma=$this->intidplatafo";
 
         $requestdelete = $this->selectall($sql);
-
+*/
         if (empty($requestdelete)) {
             $querydelete = "UPDATE tplataforma SET estado=? WHERE idplataforma = $this->intidplatafo";
             $arrdata = array(0);
@@ -103,9 +103,9 @@ class PlataformasModel extends Mysql
                 $request = 'error';
                 $return = $request;
             }
-        } else {
-            $return = 'existe';
-        }
+        } //else {
+           // $return = 'existe';
+        //}
 
         return $return;
     }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "aProcessing": true,
         "aSeverSide": true,
         "language": {
-            "url": baseurl + "/Assets/js/plugins/es-ES.json"
+            "url": "/Assets/js/plugins/es-ES.json"
         },
         "ajax": {
             "url": " " + baseurl + "/Plataformas/getplataformas",
