@@ -52,12 +52,12 @@ class PlataformasModel extends Mysql
         $this->strnombre    = $nombre;
         $this->strdescripcion = $descripcion;
         $this->intestado    = $estado;
-        
+
         $sql = "SELECT * FROM tplataforma WHERE nombre='$this->strnombre' AND idplataforma != $this->intidplatafo";
         $requestupdate = $this->selectall($sql);
 
         if (empty($requestupdate)) {
-            $queryupdate = "UPDATE tplataforma SET nombre=?,estado=? ,descripcion=?WHERE idplataforma=$this->intidplatafo";
+            $queryupdate = "UPDATE tplataforma SET nombre=?,estado=? ,descripcion=? WHERE idplataforma=$this->intidplatafo";
             $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion);
             $requestupdate = $this->update($queryupdate, $arrdata);
             $return = $requestupdate;
