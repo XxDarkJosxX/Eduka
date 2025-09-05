@@ -107,7 +107,7 @@ function fnteditplataforma() {
                 var objdata = JSON.parse(request.responseText);
 
                 if (objdata.status) {
-                    document.querySelector("#idplataforma").value = objdata.data.idcategoria;
+                    document.querySelector("#idplataforma").value = objdata.data.idplataforma;
                     document.querySelector("#txtnombre").value = objdata.data.nombre;
                     document.querySelector("#txtdescripcion").value = objdata.data.descripcion;
                     $('#liststatus').val(objdata.data.estado).trigger('change');
