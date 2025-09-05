@@ -121,7 +121,7 @@
                 
                 }else{
                     if($requestdelete == 'existe'){
-                        $arrresponse= array('status'=>false,'msg'=>'No es Posible Eliminar un rol asociado a un usuario'.$requestdelete);
+                        $arrresponse= array('status'=>false,'msg'=>'No es Posible Eliminar un plataforma asociado a un curso'.$requestdelete);
                     }else
                         $arrresponse= array('status'=>true,'msg'=>'No se elimino los datos'.$requestdelete);
                }

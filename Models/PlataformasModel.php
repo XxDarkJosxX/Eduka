@@ -79,11 +79,11 @@
         public function deleteplataforma(int $idplataforma){
             $this->intidplatafo=$idplataforma;
 
-            //$sql= "SELECT * FROM tcursos WHERE idplataforma=$this->intidplatafo";
+            $sql= "SELECT * FROM tcursos WHERE idplataforma=$this->intidplatafo";
 
-            //$requestdelete = $this->selectall($sql);
+            $requestdelete = $this->selectall($sql);
             
-            //if(empty($requestdelete)){
+            if(empty($requestdelete)){
                 $querydelete="UPDATE tplataforma SET estado=? WHERE idplataforma = $this->intidplatafo";
                 $arrdata = array(0);
                 $requestdelete= $this->update($querydelete,$arrdata);
@@ -94,9 +94,9 @@
                     $request='error';
                     $return=$request;
                 }
-            //}else{
-            //    $return='existe';
-            //}
+            }else{
+                $return='existe';
+            }
             
             return $return;
 

@@ -124,41 +124,40 @@ function fnteditplataforma() {
 
 //Delete logic
 
-function fntdelplataforma() {
-    var btndelplataforma = document.querySelectorAll(".btndelplataforma");
-    btndelplataforma.forEach(function (btndelplataforma) {
-        btndelplataforma.addEventListener("click", function () {
-            var idplataforma = this.getAttribute("rl");
+
+function fntdelplataforma(){
+   
+    $('#tableplataforma').on('click', '.btndelplataforma', function () {
+
+            var idcategoria = this.getAttribute("rl");
             swal({
-                title: "Eliminar Rol",
-                text: "¿Realmente Quiere eliminar la Plataforma?",
-                type: "warning",
-                showCancelButton: true,
+                title:"Eliminar Categorias",
+                text: "¿Realmente Quiere eliminar el Categorias?",
+                type:"warning",
+                showCancelButton:true,
                 confirmButtonText: "Si, Eliminar",
                 cancelButtonText: "No, Cancelar",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            }, function (isConfirm) {
-                if (isConfirm) {
-                    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-                    var ajaxUrl = baseurl + '/Plataformas/delplataforma/';
-                    var strdata = "idplataforma=" + idplataforma;
-                    request.open("POST", ajaxUrl, true);
-                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    request.send(strdata);
-                    request.onreadystatechange = function () {
-                        if (request.readyState == 4 && request.status == 200) {
-                            //console.log(request.responseText);
-                            var objdata = JSON.parse(request.responseText);
-                            if (objdata.status) {
-                                swal("Eliminar!", objdata.msg, "success");
-                                tablero.ajax.reload(function () {
-                                    fnteditplataforma();
-                                    fntdelplataforma();
-                                });
+                closeOnConfirm:false,
+                closeOnCancel:true
+            },function(isConfirm){
+                if(isConfirm){
+                var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+                var ajaxUrl = baseurl+'/Plataformas/delplataforma/';
+                var strdata = "idcategoria="+idcategoria;
+                request.open("POST",ajaxUrl,true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send(strdata);
+                request.onreadystatechange =function(){
+                        if(request.readyState == 4 && request.status==200){
+                            console.log(request.responseText);
+                            var objdata=JSON.parse(request.responseText);
+                            if(objdata.status){
+                                swal("Eliminar!",objdata.msg,"success");
+                            
+                                tablero.ajax.reload();
 
-                            } else {
-                                swal("Error", objdata.msg, "error");
+                            }else{
+                                swal("Error",objdata.msg,"error");
                             }
                         }
                     }
@@ -166,5 +165,5 @@ function fntdelplataforma() {
 
             });
         });
-    });
+
 }
