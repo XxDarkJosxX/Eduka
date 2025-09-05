@@ -30,7 +30,7 @@
             FROM tcursos tc 
             JOIN tusuarios tu ON tc.idusuario = tu.idusuario 
             JOIN tcategoria tcat ON tcat.idcategoria = tc.idcategoria  
-            WHERE tc.estado != 0 AND tc.idusuario = $this->intidcurso";
+            WHERE tc.estado != 0  ";
             $request=$this->selectall($sql);
             return $request;
         }
