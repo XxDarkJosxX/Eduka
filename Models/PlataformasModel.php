@@ -58,7 +58,7 @@ class PlataformasModel extends Mysql
 
         if (empty($requestupdate)) {
             $queryupdate = "UPDATE tplataforma SET nombre=?,descripcion=?,estado=? WHERE idplataforma=$this->intidplatafo";
-            $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion);
+            $arrdata = array($this->strnombre,  $this->strdescripcion,$this->intestado,);
             $requestupdate = $this->update($queryupdate, $arrdata);
             $return = $requestupdate;
         } else {
