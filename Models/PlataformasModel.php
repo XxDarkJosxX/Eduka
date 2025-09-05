@@ -64,7 +64,7 @@
         }
 
    
-        //parte del delete
+        //parte del update
         public function selectplataforma(int $idplataforma){
             $this->intidplatafo= $idplataforma;
             $sql="SELECT * FROM tplataforma WHERE idplataforma = $this->intidplatafo";
