@@ -17,22 +17,22 @@
 
           <!-- Esta es la clase de alertas son los mensaje -->
           <!--<div class="was-validated">-->
-            <!-- Utiliza la clase feedback -->
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label class="control-label">Nombre</label>
-                <input class="form-control" id="txtnombre" name="txtnombre" minlength="2" maxlength="20" pattern="[a-zA-Z ]{2,20}" type="text" placeholder="Nombre" required="">
-              </div>
-              <div class="form-group col-md-4">
-                <label class="control-label">Descripcion</label>
-                <input class="form-control" id="txtdescripcion" name="txtdescripcion" type="text" placeholder="" required="">
-              </div>
+          <!-- Utiliza la clase feedback -->
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label class="control-label">Nombre</label>
+              <input class="form-control" id="txtnombre" name="txtnombre" minlength="2" maxlength="20" pattern="[a-zA-Z ]{2,20}" type="text" placeholder="Nombre" required="">
             </div>
+            <div class="form-group col-md-4">
+              <label class="control-label">Descripcion</label>
+              <input class="form-control" id="txtdescripcion" name="txtdescripcion" type="text" placeholder="" required="">
+            </div>
+          </div>
           <!--</div>-->
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="liststatus">Estado</label>
-              <select class="form-control" id="liststatus" name="liststatus" placeholder="Estado">
+              <select class="form-control" id="liststatus" data-toggle="select" name="liststatus" placeholder="Estado">
                 <option value="1">Activo</option>
                 <option value="2">Inactivo</option>
               </select>
@@ -57,5 +57,3 @@
     </div>
   </div>
 </div>
-
-
