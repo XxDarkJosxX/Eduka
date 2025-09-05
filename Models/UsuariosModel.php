@@ -84,7 +84,7 @@ class UsuariosModel extends Mysql
         $this->inttelefono  = $telefono;
         $this->intestado     = $estado;
 
-        echo $telefono;
+        echo $telefono. "nuevo";
         $sql = "SELECT * FROM tusuarios WHERE nombre='{$this->strnombre}' AND apellidos='{$this->strapellido}' AND idusuario != $this->intidusuario";
         $requestupdate = $this->selectall($sql);
 

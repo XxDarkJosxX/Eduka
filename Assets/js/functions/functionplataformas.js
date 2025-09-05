@@ -153,8 +153,8 @@ function fntdelplataforma() {
                             if (objdata.status) {
                                 swal("Eliminar!", objdata.msg, "success");
                                 tablero.ajax.reload(function () {
-                                    fnteditrol();
-                                    fntdelrol();
+                                    fnteditplataforma();
+                                    fntdelplataforma();
                                 });
 
                             } else {
