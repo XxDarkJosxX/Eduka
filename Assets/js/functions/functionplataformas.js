@@ -80,7 +80,7 @@ function openmodal() {
 }
 //Funciones Usuarios
 window.addEventListener('load', function () {
-    //fnteditrol();
+    fnteditplataforma();
     //fntdelrol();
 }, false)
 
