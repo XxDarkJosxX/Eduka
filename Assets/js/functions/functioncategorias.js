@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded",function(){
                     swal("Administración de Categorias", obdata.msg ,"success");
                     //Ojo 
                     tablero.ajax.reload(function(){
-                        //fnteditrol();
+                      
                         //fntdelrol();
                         //fntpermisosrol();
                     });

@@ -81,7 +81,7 @@ function openmodal() {
 //Funciones Usuarios
 window.addEventListener('load', function () {
     fnteditplataforma();
-    //fntdelrol();
+    fntdelplataforma();
 }, false)
 
 
