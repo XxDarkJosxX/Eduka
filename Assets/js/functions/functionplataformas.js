@@ -131,8 +131,8 @@ function fntdelplataforma(){
 
             var idcategoria = this.getAttribute("rl");
             swal({
-                title:"Eliminar Categorias",
-                text: "¿Realmente Quiere eliminar el Categorias?",
+                title:"Eliminar Plataforma",
+                text: "¿Realmente Quiere eliminar la Plataforma?",
                 type:"warning",
                 showCancelButton:true,
                 confirmButtonText: "Si, Eliminar",
