@@ -67,7 +67,7 @@
                 $strnombre = ucwords(strclean($_POST['txtnombre']));
                 $strdescripcion = ucwords(strclean($_POST['txtdescripcion']));
                 $intestado = intval(strclean($_POST['liststatus']));
-                echo $idplataforma;
+                 
            
                 //Esto se basa en el id oculto que se usa en rl 
                 if($idplataforma == 0)
