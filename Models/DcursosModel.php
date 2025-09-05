@@ -25,11 +25,12 @@
 
         
         public function selectcursos(){
+            $this->intidcurso = $_SESSION['idcurso'];
             $sql= "SELECT tu.idusuario, tu.nombre, tu.apellidos, tc.idcurso , tc.titulo, tc.estado, tcat.nombre AS nombrecat
             FROM tcursos tc 
             JOIN tusuarios tu ON tc.idusuario = tu.idusuario 
             JOIN tcategoria tcat ON tcat.idcategoria = tc.idcategoria  
-            WHERE tc.estado != 0";
+            WHERE tc.estado != 0 AND tc.idusuario = $this->intidcurso";
             $request=$this->selectall($sql);
             return $request;
         }
