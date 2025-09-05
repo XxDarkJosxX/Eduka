@@ -129,7 +129,7 @@ function fntdelplataforma(){
    
     $('#tableplataforma').on('click', '.btndelplataforma', function () {
 
-            var idcategoria = this.getAttribute("rl");
+            var idplataforma = this.getAttribute("rl");
             swal({
                 title:"Eliminar Plataforma",
                 text: "¿Realmente Quiere eliminar la Plataforma?",
@@ -143,7 +143,7 @@ function fntdelplataforma(){
                 if(isConfirm){
                 var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
                 var ajaxUrl = baseurl+'/Plataformas/delplataforma/';
-                var strdata = "idcategoria="+idcategoria;
+                var strdata = "idplataforma="+idplataforma;
                 request.open("POST",ajaxUrl,true);
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 request.send(strdata);
