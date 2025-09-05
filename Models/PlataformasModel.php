@@ -45,7 +45,7 @@ class PlataformasModel extends Mysql
         return $return;
     }
     //Update
-     public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
+    public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
     {
 
         $this->intidplatafo = $idplatafor;
@@ -53,15 +53,12 @@ class PlataformasModel extends Mysql
         $this->strdescripcion = $descripcion;
         $this->intestado    = $estado;
 
-        // Consulta preparada para evitar inyección de SQL
-        $sql = "SELECT * FROM tplataforma WHERE nombre = ? AND idplataforma != ?";
-        $arrdata = array($this->strnombre, $this->intidplatafo);
-        $requestupdate = $this->selectall($sql, $arrdata);
+        $sql = "SELECT * FROM tplataforma WHERE nombre='$this->strnombre' AND idplataforma != $this->intidplatafo";
+        $requestupdate = $this->selectall($sql);
 
         if (empty($requestupdate)) {
-            // Corrección: Usar ? para todos los valores y pasarlos en el array
-            $queryupdate = "UPDATE tplataforma SET nombre = ?, estado = ?, descripcion = ? WHERE idplataforma = ?";
-            $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion, $this->intidplatafo);
+            $queryupdate = "UPDATE tplataforma SET nombre=?,estado=? ,descripcion=? WHERE idplataforma=$this->intidplatafo";
+            $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion);
             $requestupdate = $this->update($queryupdate, $arrdata);
             $return = $requestupdate;
         } else {
@@ -78,11 +75,11 @@ class PlataformasModel extends Mysql
         $this->intidplatafo = $idplataforma;
         $sql = "SELECT tp.idplataforma, tp.nombre, tp.descripcion, tp.estado
             FROM tplataforma tp
-            WHERE tp.idplataforma = ?";
-        $arrdata = array($this->intidplatafo);
-        $request = $this->select($sql, $arrdata);
+            WHERE tp.idplataforma = $this->intidplatafo";
+        $request = $this->select($sql);
         return $request;
     }
+
 
 
 
