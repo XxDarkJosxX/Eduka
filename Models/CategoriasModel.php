@@ -16,11 +16,16 @@ class CategoriasModel extends Mysql
     //YO
     public function seleccategorias()
     {
-        $sql = "SELECT tc.idcategoria, tc.nombre, tc.descripcion, tc.estado
-            FROM tcategoria tc 
-            WHERE tc.estado != 0";
+        // $sql = "SELECT tc.idcategoria, tc.nombre, tc.descripcion, tc.estado
+        //     FROM tcategoria tc 
+        //     WHERE tc.estado != 0";
+        // $request = $this->selectall($sql);
+        // return $request;
+
+       $sql = "SELECT * FROM tcategoria";
         $request = $this->selectall($sql);
         return $request;
+
     }
 
     public function selectcategoria(int $iduser)
