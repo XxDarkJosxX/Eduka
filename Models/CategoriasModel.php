@@ -98,7 +98,7 @@
     $this->intcategorias=$idcategoria;
 
 
-  //  $sql= "SELECT * FROM tcategoria WHERE idcategoria=$this->intcategorias";
+  //$sql= "SELECT * FROM tcategoria WHERE idcategoria=$this->intcategorias";
 //$requestdelete = $this->selectall($sql);
     
     //if(empty($requestdelete)){
