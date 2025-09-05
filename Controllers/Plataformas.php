@@ -55,55 +55,67 @@
 
         //Insert 
         //Logica update como
-        public function setplataformas()
-    {
-        // 1. Validar que la solicitud sea POST y que los datos esenciales no estén vacíos.
-        if ($_POST) {
-            if (empty($_POST['txtnombre']) || empty($_POST['txtdescripcion']) || empty($_POST['liststatus'])) {
-                $arrresponse = array("status" => false, "msg" => 'Datos incorrectos o incompletos.');
-            } else {
-                // 2. Limpieza y asignación de variables
-                $intidplataforma = intval($_POST['idplataforma']);
+     public function setplataformas(){
+            if($_POST){	
+            if(empty($_POST['txtnombre']) || empty($_POST['txtdescripcion']) )
+            {
+                $arrresponse = array("status" => false, "msg" => 'Datos incorrectos.');
+            }else{ 
+                // No importa el orden de las variables
+                $idcategorias = intval($_POST['idplataforma']);
                 $strnombre = ucwords(strclean($_POST['txtnombre']));
-                $strdescripcion = strclean($_POST['txtdescripcion']);
-                $intstatus = intval($_POST['liststatus']);
-                $option = 0;
-                $requestplataforma = 0;
-
-                // 3. Lógica para Insertar o Actualizar (uso de if/else para mayor claridad)
-                if ($intidplataforma == 0) {
-                    // Es un nuevo registro
-                    $requestplataforma = $this->model->insertplataforma($strnombre, $strdescripcion, $intstatus);
+                $strdescripcion = ucwords(strclean($_POST['txtdescripcion']));
+                $intestado = intval(strclean($_POST['liststatus']));
+           
+                //Esto se basa en el id oculto que se usa en rl 
+                if($idcategorias == 0)
+                {
+                    //Se incrementa mediante la respuesta del request de model
+                   
+                    $requestcategorias = $this->model->insertplataforma(
+                    $strnombre, 
+                    $strdescripcion, 
+                    $intestado
+                    );
                     $option = 1;
-                } else {
-                    // Es una actualización
-                    $requestplataforma = $this->model->updateplataforma($intidplataforma, $strnombre, $strdescripcion, $intstatus);
-                    $option = 2;
-                }
+                    
 
-                // 4. Manejo de la respuesta
-                if ($requestplataforma > 0) {
-                    if ($option == 1) {
-                        $arrresponse = array('status' => true, 'msg' => 'Datos Guardados Correctamente');
-                    } else { // $option == 2
-                        $arrresponse = array('status' => true, 'msg' => 'Datos Actualizados Correctamente');
-                    }
-                } else {
-                    // Manejo de errores basado en el valor de retorno del modelo
-                    if ($requestplataforma == -1) {
-                        $arrresponse = array('status' => false, 'msg' => '!Atencion! El nombre de la plataforma ya existe');
-                    } else {
-                        // Aquí se corrige la inconsistencia, si falla, el status es false
-                        $arrresponse = array('status' => false, 'msg' => 'No se almacenaron los datos');
-                    }
                 }
+                if($idcategorias != 0){
+                  
+                    $requestcategorias = $this->model->updateplataforma(
+                    $idcategorias,
+                    $strnombre, 
+                    $strdescripcion, 
+                    $intestado
+                    );
+                    $option = 2;
+
+                }
+                if($requestcategorias > 0){
+ 
+                    if($option == 1 ){
+                        $arrresponse= array('status'=>true,'msg'=>'Datos Guardados Correctamente');
+                    }
+                    if($option == 2 ){
+                        $arrresponse= array('status'=>true,'msg'=>'Datos Actualizados Correctamente');
+                    }
+                    
+               }else{
+                    if($requestcategorias == -1){
+                        $arrresponse= array('status'=>false,'msg'=>'!Atencion! El rol ya existe');
+                    }else
+                    $arrresponse= array('status'=>true,'msg'=>'No se almaceno los datos');
+               }
+               
+
+
+
             }
-            // 5. Envío de la respuesta JSON
-            echo json_encode($arrresponse, JSON_UNESCAPED_UNICODE);
+            echo json_encode($arrresponse,JSON_UNESCAPED_UNICODE);
         }
         die();
-    }
-
+        }
         //Update
         public function getplataforma($idplataforma){
             //dep($_POST);
