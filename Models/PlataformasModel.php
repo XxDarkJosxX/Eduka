@@ -45,7 +45,7 @@ class PlataformasModel extends Mysql
         return $return;
     }
     //Update
- public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
+     public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
     {
 
         $this->intidplatafo = $idplatafor;
@@ -71,17 +71,18 @@ class PlataformasModel extends Mysql
         return $return;
     }
 
+
     //parte del update
     public function selectplataforma(int $idplataforma)
     {
         $this->intidplatafo = $idplataforma;
         $sql = "SELECT tp.idplataforma, tp.nombre, tp.descripcion, tp.estado
             FROM tplataforma tp
-            WHERE tp.idplataforma = $this->intidplatafo";
-        $request = $this->select($sql);
+            WHERE tp.idplataforma = ?";
+        $arrdata = array($this->intidplatafo);
+        $request = $this->select($sql, $arrdata);
         return $request;
     }
-
 
 
 
