@@ -5,7 +5,7 @@
          <div class="sidebar sidebar-mini sidebar-dark-pickled-bluewood sidebar-left d-flex flex-column">
 
              <!-- Brand -->
-             <a  class="sidebar-brand p-0 navbar-height d-flex justify-content-center">
+             <a class="sidebar-brand p-0 navbar-height d-flex justify-content-center">
 
                  <span class="avatar avatar-sm ">
 
@@ -17,24 +17,18 @@
 
              <div class="flex d-flex flex-column justify-content-start" data-perfect-scrollbar>
                  <ul style="margin: auto !important;" class="nav flex-shrink-0 flex-nowrap flex-column sidebar-menu mb-0 js-sidebar-mini-tabs" role="tablist">
-                     <!-- data-toggle="tooltip" sin hover de texto-->
-                     <!-- <li class="sidebar-menu-item active" data-title="Usuarios" data-placement="right" data-container="body" data-boundary="window">
-                         <a class="sidebar-menu-button" href="#sm_components" data-toggle="tab" role="tab" aria-controls="sm_components">
-                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
-                             <span class="sidebar-menu-text">Dashboard</span>
-                         </a>
-                     </li> -->
-                     <!-- data-toggle="tooltip" sin hover de texto-->
-                     <li class="sidebar-menu-item active" data-title="Usuarios" data-placement="right" data-container="body" data-boundary="window">
+
+                     <?php if (!empty($_SESSION['permisos'][2]['r'])) { ?>
+                         <li class="sidebar-menu-item active" data-title="Usuarios" data-placement="right" data-container="body" data-boundary="window">
+
+                             <a class="sidebar-menu-button" href="#sm_usuarios" data-toggle="tab" role="tab" aria-controls="sm_usuarios">
+                                 <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">group</i>
+                                 <span class="sidebar-menu-text">Usuarios</span>
+                             </a>
+                         </li>
+                     <?php } ?>
 
 
-
-                         <a class="sidebar-menu-button" href="#sm_usuarios" data-toggle="tab" role="tab" aria-controls="sm_usuarios">
-                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">group</i>
-                             <span class="sidebar-menu-text">Usuarios</span>
-                         </a>
-                     </li>
-                     <!-- data-toggle="tooltip" sin hover de texto-->
                      <li class="sidebar-menu-item" data-title="Cursos" data-placement="right" data-boundary="window">
                          <a class="sidebar-menu-button" href="#sm_cursos" data-toggle="tab" role="tab" aria-controls="sm_cursos" aria-selected="false">
                              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i>
@@ -42,7 +36,7 @@
                          </a>
                      </li>
 
-                     <!-- data-toggle="tooltip" sin hover de texto-->
+
                      <li class="sidebar-menu-item" data-title="Filtros" data-placement="right" data-boundary="window">
                          <a class="sidebar-menu-button" href="#sm_filtros" data-toggle="tab" role="tab" aria-controls="sm_filtros" aria-selected="false">
                              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">ballot</i>
@@ -79,7 +73,7 @@
              <div class="tab-content">
 
                  <div class="tab-pane fade active show" id="sm_usuarios">
-                     <a  class="sidebar-brand navadmin">
+                     <a class="sidebar-brand navadmin">
                          <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
 
                          <span class="avatar avatar-xl sidebar-brand-icon h-auto">
@@ -100,7 +94,7 @@
                                  <span class="ml-auto sidebar-menu-toggle-icon"></span>
                              </a>
                              <ul class="sidebar-submenu collapse sm-indent" id="components_menu">
-                              
+
                                  <li class="sidebar-menu-item">
                                      <a class="sidebar-menu-button" href="<?= base_url() ?>/Usuarios">
                                          <span class="sidebar-menu-text">Administradores</span>
@@ -140,7 +134,7 @@
                  </div>
 
                  <div class="tab-pane" id="sm_cursos">
-                    <a  class="sidebar-brand navadmin">
+                     <a class="sidebar-brand navadmin">
                          <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
 
                          <span class="avatar avatar-xl sidebar-brand-icon h-auto">
@@ -159,7 +153,7 @@
                                  <span class="sidebar-menu-text">Cursos</span>
                              </a>
                          </li>
-                              <li class="sidebar-menu-item">
+                         <li class="sidebar-menu-item">
                              <a class="sidebar-menu-button" href="<?= base_url() ?>/Dcur">
                                  <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">school</span>
                                  <span class="sidebar-menu-text">Mis Cursos</span>
@@ -171,7 +165,7 @@
 
 
                  <div class="tab-pane" id="sm_filtros">
-                    <a  class="sidebar-brand navadmin">
+                     <a class="sidebar-brand navadmin">
                          <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
 
                          <span class="avatar avatar-xl sidebar-brand-icon h-auto">
@@ -200,7 +194,7 @@
                  </div>
 
                  <div class="tab-pane" id="sm_cuenta">
-                    <a  class="sidebar-brand navadmin">
+                     <a class="sidebar-brand navadmin">
                          <!-- <img class="sidebar-brand-icon" src="../../public/images/illustration/student/128/white.svg" alt="Luma"> -->
 
                          <span class="avatar avatar-xl sidebar-brand-icon h-auto">
