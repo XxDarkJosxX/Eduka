@@ -45,28 +45,29 @@ class PlataformasModel extends Mysql
         return $return;
     }
     //Update
-    public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
-    {
+ public function updateplataforma(int $idplatafor, string $nombre, string $descripcion, int $estado)
+{
+    $this->intidplatafo = $idplatafor;
+    $this->strnombre = $nombre;
+    $this->strdescripcion = $descripcion;
+    $this->intestado = $estado;
 
-        $this->intidplatafo = $idplatafor;
-        $this->strnombre    = $nombre;
-        $this->strdescripcion = $descripcion;
-        $this->intestado    = $estado;
+    // Validación para nombre duplicado
+    $sql = "SELECT * FROM tplataforma WHERE nombre='$this->strnombre' AND idplataforma != $this->intidplatafo";
+    $requestupdate = $this->selectall($sql);
 
-        $sql = "SELECT * FROM tplataforma WHERE nombre='$this->strnombre' AND idplataforma != $this->intidplatafo";
-        $requestupdate = $this->selectall($sql);
-
-        if (empty($requestupdate)) {
-            $queryupdate = "UPDATE tplataforma SET nombre=?,estado=? ,descripcion=? WHERE idplataforma=$this->intidplatafo";
-            $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion);
-            $requestupdate = $this->update($queryupdate, $arrdata);
-            $return = $requestupdate;
-        } else {
-            $return = -1;
-        }
-
-        return $return;
+    if (empty($requestupdate)) {
+        // Corrección del error: se agregó un espacio y un '?' para el ID
+        $queryupdate = "UPDATE tplataforma SET nombre=?, estado=?, descripcion=? WHERE idplataforma=?";
+        $arrdata = array($this->strnombre, $this->intestado, $this->strdescripcion, $this->intidplatafo); // Agregar el ID al array
+        $requestupdate = $this->update($queryupdate, $arrdata);
+        $return = $requestupdate;
+    } else {
+        $return = -1;
     }
+
+    return $return;
+}
 
 
     //parte del update
