@@ -62,17 +62,17 @@
                 $arrresponse = array("status" => false, "msg" => 'Datos incorrectos.');
             }else{ 
                 // No importa el orden de las variables
-                $idcategorias = intval($_POST['idplataforma']);
+                $idplataforma = intval($_POST['idplataforma']);
                 $strnombre = ucwords(strclean($_POST['txtnombre']));
                 $strdescripcion = ucwords(strclean($_POST['txtdescripcion']));
                 $intestado = intval(strclean($_POST['liststatus']));
            
                 //Esto se basa en el id oculto que se usa en rl 
-                if($idcategorias == 0)
+                if($idplataforma == 0)
                 {
                     //Se incrementa mediante la respuesta del request de model
                    
-                    $requestcategorias = $this->model->insertplataforma(
+                    $requestplataformas = $this->model->insertplataforma(
                     $strnombre, 
                     $strdescripcion, 
                     $intestado
@@ -81,10 +81,10 @@
                     
 
                 }
-                if($idcategorias != 0){
+                if($idplataforma != 0){
                   
-                    $requestcategorias = $this->model->updateplataforma(
-                    $idcategorias,
+                    $requestplataformas = $this->model->updateplataforma(
+                    $idplataforma,
                     $strnombre, 
                     $strdescripcion, 
                     $intestado
@@ -92,7 +92,7 @@
                     $option = 2;
 
                 }
-                if($requestcategorias > 0){
+                if($requestplataformas > 0){
  
                     if($option == 1 ){
                         $arrresponse= array('status'=>true,'msg'=>'Datos Guardados Correctamente');
@@ -102,7 +102,7 @@
                     }
                     
                }else{
-                    if($requestcategorias == -1){
+                    if($requestplataformas == -1){
                         $arrresponse= array('status'=>false,'msg'=>'!Atencion! El rol ya existe');
                     }else
                     $arrresponse= array('status'=>true,'msg'=>'No se almaceno los datos');
