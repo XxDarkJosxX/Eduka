@@ -34,6 +34,7 @@ class UsuariosModel extends Mysql
 
     public function insertusuario(int $idrol, string $nombre, string $apellido, string $email, int $telefono, string $password,  int $estado)
     {
+        
         $this->intidrol = $idrol;
 
         $this->strnombre = $nombre;

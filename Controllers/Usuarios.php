@@ -79,6 +79,9 @@
                 $strapellido = ucwords(strclean($_POST['txtapellido']));
                 $strcorreo = strtolower(strclean($_POST['txtcorreo']));
                 $inttelefono = intval(strclean($_POST['txttelefono']));
+
+                echo $inttelefono;
+
                 $intestado = intval(strclean($_POST['liststatus']));
                 $intidrol=intval($_POST['txtrol']);
                 //Esto se basa en el id oculto que se usa en rl 
