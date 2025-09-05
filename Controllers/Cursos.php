@@ -46,7 +46,7 @@ class Cursos extends Controllers
                     <a class="dropdown-item btneditcurso" rl="' . $arrdata[$i]['idcurso'] . '">Editar</a>
                     <a class="dropdown-item btnclases" rl="' . $arrdata[$i]['idcurso'] . '">Clases</a>
                     <div class="dropdown-divider"></div>
-                    <a  class="dropdown-item text-danger btndelcurso" rl="' . $arrdata[$i]['idcurso'] . '">Eliminar</a>
+    
                 </div>
                 </div>';
 
