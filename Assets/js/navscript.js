@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!link) return;
 
         link.addEventListener("click", function () {
-            // Si es un colapsable, solo mantener el active, no borrarlo
             const submenu = link.getAttribute("data-toggle") === "collapse";
             if (!submenu) {
                 menuItems.forEach(el => el.classList.remove("active"));
@@ -42,29 +41,42 @@ document.addEventListener("DOMContentLoaded", function () {
             if (parent) parent.classList.remove("active");
         });
     });
-});
 
+    // Forzar tabs solo si se hace clic en los links
+    const sidebarLinks = document.querySelectorAll(".js-sidebar-mini-tabs [data-toggle='tab']");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const sidebarLinks = document.querySelectorAll(".js-sidebar-mini-tabs [data-toggle='tab']");
+    sidebarLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // evita saltos raros
 
-  sidebarLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-      // Si está en modo mini, forzar abrir + activar tab
-      const drawer = document.querySelector(".mdk-drawer");
-      if (drawer && drawer.classList.contains("layout-mini__drawer")) {
-        // Forzar mostrar tab sin esperar doble clic
-        const tabId = this.getAttribute("href");
-        if (tabId && tabId.startsWith("#")) {
-          const tabPane = document.querySelector(tabId);
-          if (tabPane) {
-            document.querySelectorAll(".tab-pane").forEach(pane => {
-              pane.classList.remove("active", "show");
-            });
-            tabPane.classList.add("active", "show");
-          }
-        }
-      }
+            // Solo ejecutar si es un link válido
+            if (!e.currentTarget.classList.contains("sidebar-menu-button")) {
+                return;
+            }
+
+            const drawer = document.querySelector(".mdk-drawer");
+            if (drawer && drawer.classList.contains("layout-mini__drawer")) {
+                const tabId = this.getAttribute("href");
+                if (tabId && tabId.startsWith("#")) {
+                    const tabPane = document.querySelector(tabId);
+                    if (tabPane) {
+                        document.querySelectorAll(".tab-pane").forEach(pane => {
+                            pane.classList.remove("active", "show");
+                        });
+                        tabPane.classList.add("active", "show");
+                    }
+                }
+            }
+        });
     });
-  });
+
+    // Evitar que se abran pestañas al hacer clic en partes vacías del sidebar
+    document.querySelectorAll(".sidebar").forEach(sidebar => {
+        sidebar.addEventListener("click", function (e) {
+            if (!e.target.closest("a.sidebar-menu-button")) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        });
+    });
 });
