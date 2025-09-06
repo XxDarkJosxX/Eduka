@@ -77,7 +77,7 @@
                 })
             })()
         </script> -->
-        <script src="<?= media() ?>/js/navscript.js"></script>
+        <script src="<?= media() ?>/js/navscript.js?v=<?= time() ?>"></script>
 
         <script src="<?= media() ?>/js/functions/<?= $data['page_js'] ?>?v=<?= time() ?>"></script>
 
