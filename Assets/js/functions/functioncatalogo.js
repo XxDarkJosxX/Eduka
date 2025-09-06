@@ -11,6 +11,8 @@ const paginationContainer = document.querySelector('#paginationContainer');
 const searchInput = document.querySelector('.search-input');
 const coursesPerPageSelect = document.querySelector('.form-control-sm');
 
+
+
 // Función para generar las tarjetas HTML
 function generateCardHTML(clase) {
     return `

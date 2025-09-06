@@ -74,7 +74,7 @@
         <script src="<?= media() ?>/vendor/dom-factory.js"></script>
 
         <!-- MDK -->
-        <!-- <script src="<?= media() ?>/vendor/material-design-kit.js"></script> -->
+        <script src="<?= media() ?>/vendor/material-design-kit.js"></script>
    
         <!-- App JS -->
         <script src="<?= media() ?>/js/template/app.js"></script>
