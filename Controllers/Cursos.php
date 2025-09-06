@@ -14,8 +14,8 @@ class Cursos extends Controllers
     //Visualizacion
     public function Cursos()
     {
-        if(empty($_SESSION['permisosmod']['r'])){
-            header('Location: '.base_url()."/dashboard");
+        if (empty($_SESSION['permisosmod']['r'])) {
+            header('Location: ' . base_url() . "/dashboard");
         }
         $data['page_tag'] = "Usuarios";
         $data['page_title'] = "Pagina Principal";
@@ -28,29 +28,44 @@ class Cursos extends Controllers
     public function getcursos()
     {
         $arrdata = $this->model->selectcursos();
-        $crudopciones="";
-        
+
         for ($i = 0; $i < count($arrdata); $i++) {
+            // Estado
             if ($arrdata[$i]['estado'] == 1) {
                 $arrdata[$i]['estado'] = '<span class="badge badge-pill badge-success">Activo</span>';
             } else {
                 $arrdata[$i]['estado'] = '<span class="badge badge-pill badge-danger">Inactivo</span>';
             }
 
+            // Botones según permisos
+            $btnview   = '';
+            $btnedit   = '';
+            $btnclases = '';
+            $btndelete = '';
 
+            if (!empty($_SESSION['permisosmod']['r'])) {
+                // Botón "Clases" lo tratamos como acción de lectura
+                $btnclases = '<a class="dropdown-item btnclases" rl="' . $arrdata[$i]['idcurso'] . '">Clases</a>';
+            }
 
+            if (!empty($_SESSION['permisosmod']['u'])) {
+                $btnedit = '<a class="dropdown-item btneditcurso" rl="' . $arrdata[$i]['idcurso'] . '">Editar</a>';
+            }
+
+            if (!empty($_SESSION['permisosmod']['d'])) {
+                $btndelete = '<div class="dropdown-divider"></div>
+                          <a class="dropdown-item text-danger btndelcurso" rl="' . $arrdata[$i]['idcurso'] . '">Eliminar</a>';
+            }
+
+            // Menú final
             $crudopciones = '<div class="dropdown">
-                <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
-                <div class="dropdown-menu dropdown-menu-right" style="">
-                
-                    <a class="dropdown-item btneditcurso" rl="' . $arrdata[$i]['idcurso'] . '">Editar</a>
-                    <a class="dropdown-item btnclases" rl="' . $arrdata[$i]['idcurso'] . '">Clases</a>
-                    <div class="dropdown-divider"></div>
-    
-                </div>
-                </div>';
-
-       
+            <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted" aria-expanded="false">
+                <i class="material-icons">more_horiz</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">'
+                . $btnedit . $btnclases . $btndelete .
+                '</div>
+            </div>';
 
             $arrdata[$i]['acciones'] = '<div class="text-center">' . $crudopciones . '</div>';
         }
@@ -58,6 +73,7 @@ class Cursos extends Controllers
         echo json_encode($arrdata, JSON_UNESCAPED_UNICODE);
         die();
     }
+
     //Especial funciones de visualizacion
 
     public function getselecategorias()
@@ -119,7 +135,7 @@ class Cursos extends Controllers
         $intplataforma = intval($_POST['listplataformas']);
         $intprivacidad = intval($_POST['listprivacidad']);
         $intstatus = intval($_POST['liststatus']);
-        
+
 
         $filename = $_FILES['materialimg']['name'];
         $extensionArchivo = pathinfo($filename, PATHINFO_EXTENSION);
@@ -128,23 +144,23 @@ class Cursos extends Controllers
         $fileurl = './Assets/archivos/materiales/' . $filename;
 
         if ($intidcurso == 0) {
-            $requestrol = $this->model->insertcurso($intidautor, $intprivacidad, $intcategor,$intplataforma, $strtitulo, $strdescripcion, $intstatus);
+            $requestrol = $this->model->insertcurso($intidautor, $intprivacidad, $intcategor, $intplataforma, $strtitulo, $strdescripcion, $intstatus);
 
-            $filename = 'Portada - '.$requestrol.'.'.$extensionArchivo;
+            $filename = 'Portada - ' . $requestrol . '.' . $extensionArchivo;
             $fileurl = './Assets/archivos/portada-curso/' . $filename;
             $fileurl2 = '/Assets/archivos/portada-curso/' . $filename;
-            $requestfile=$this->model->insertfile($requestrol,$filename, $fileurl2);
+            $requestfile = $this->model->insertfile($requestrol, $filename, $fileurl2);
 
             $option = 1;
         }
-        
-        if ($intidcurso != 0) {
-            $requestrol = $this->model->updatecurso($intidcurso, $intprivacidad, $intcategor,$intplataforma, $strtitulo, $strdescripcion, $intstatus);
 
-            $filename = 'Portada - '.$intidcurso.'.'.$extensionArchivo;
+        if ($intidcurso != 0) {
+            $requestrol = $this->model->updatecurso($intidcurso, $intprivacidad, $intcategor, $intplataforma, $strtitulo, $strdescripcion, $intstatus);
+
+            $filename = 'Portada - ' . $intidcurso . '.' . $extensionArchivo;
             $fileurl = './Assets/archivos/portada-curso/' . $filename;
             $fileurl2 = '/Assets/archivos/portada-curso/' . $filename;
-            $requestfile=$this->model->insertfile($intidcurso,$filename, $fileurl2);
+            $requestfile = $this->model->insertfile($intidcurso, $filename, $fileurl2);
 
             $option = 2;
         }
@@ -157,7 +173,7 @@ class Cursos extends Controllers
                 if (file_exists($fileurl)) {
                     unlink($fileurl);
                     move_uploaded_file($temp, $fileurl);
-                }else{
+                } else {
                     move_uploaded_file($temp, $fileurl);
                 }
             }
@@ -166,7 +182,7 @@ class Cursos extends Controllers
                 if (file_exists($fileurl)) {
                     unlink($fileurl);
                     move_uploaded_file($temp, $fileurl);
-                }else{
+                } else {
                     move_uploaded_file($temp, $fileurl);
                 }
             }

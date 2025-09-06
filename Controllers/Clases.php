@@ -35,33 +35,51 @@ class Clases extends Controllers
     public function getclases()
     {
         $idcurso = $_SESSION['idcurso'];
-        $crudopciones = "";
-
         $arrdata = $this->model->selectclases($idcurso);
 
         for ($i = 0; $i < count($arrdata); $i++) {
+            // Estado
             if ($arrdata[$i]['estado'] == 1) {
                 $arrdata[$i]['estado'] = '<span class="badge badge-pill badge-success">Activo</span>';
             } else {
                 $arrdata[$i]['estado'] = '<span class="badge badge-pill badge-danger">Inactivo</span>';
             }
+
+            // Privacidad
             if ($arrdata[$i]['privacidad'] == 1) {
-                $arrdata[$i]['privacidad'] = '<span class="badge badge-pill badge-success">Publico</span>';
+                $arrdata[$i]['privacidad'] = '<span class="badge badge-pill badge-success">Público</span>';
             } else {
                 $arrdata[$i]['privacidad'] = '<span class="badge badge-pill badge-danger">Privado</span>';
             }
 
-            $crudopciones = '<div class="dropdown">
-                <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
-                <div class="dropdown-menu dropdown-menu-right" style="">
-                
-                    <a class="dropdown-item btneditclase" rl="' . $arrdata[$i]['idclases'] . '">Editar</a>
-          
-                    <div class="dropdown-divider"></div>
-                    <a  class="dropdown-item text-danger btndelclase" rl="' . $arrdata[$i]['idclases'] . '">Eliminar</a>
-                </div>
-                </div>';
+            // Botones según permisos
+            $btnview   = '';
+            $btnedit   = '';
+            $btndelete = '';
 
+            if (!empty($_SESSION['permisosmod']['r'])) {
+                // Si más adelante quieres ver detalles, aquí iría:
+                // $btnview = '<a onClick="fntviewclase(' . $arrdata[$i]['idclases'] . ')" class="dropdown-item">Detalles</a>';
+            }
+
+            if (!empty($_SESSION['permisosmod']['u'])) {
+                $btnedit = '<a class="dropdown-item btneditclase" rl="' . $arrdata[$i]['idclases'] . '">Editar</a>';
+            }
+
+            if (!empty($_SESSION['permisosmod']['d'])) {
+                $btndelete = '<div class="dropdown-divider"></div>
+                          <a class="dropdown-item text-danger btndelclase" rl="' . $arrdata[$i]['idclases'] . '">Eliminar</a>';
+            }
+
+            // Menú final
+            $crudopciones = '<div class="dropdown">
+            <a href="#" data-toggle="dropdown" data-caret="false" class="text-muted" aria-expanded="false">
+                <i class="material-icons">more_horiz</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">'
+                . $btnview . $btnedit . $btndelete .
+                '</div>
+        </div>';
 
             $arrdata[$i]['acciones'] = '<div class="text-center">' . $crudopciones . '</div>';
         }
@@ -69,6 +87,7 @@ class Clases extends Controllers
         echo json_encode($arrdata, JSON_UNESCAPED_UNICODE);
         die();
     }
+
 
 
     public function getclase($idclase)

@@ -6,6 +6,7 @@
             if(empty($_SESSION['login'])){
                 header('Location: '.base_url()."/login");
             }
+            getpermisos(0);
         }
         
         //Visualizacion
